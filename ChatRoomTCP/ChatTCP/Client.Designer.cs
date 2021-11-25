@@ -51,6 +51,7 @@ namespace ChatTCP
             this.btn_Send = new System.Windows.Forms.Button();
             this.txt_inputMess_client = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.btn_img_user_client = new System.Windows.Forms.Button();
             this.tab2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tab1.SuspendLayout();
@@ -66,6 +67,7 @@ namespace ChatTCP
             // 
             // tab2
             // 
+            this.tab2.Controls.Add(this.btn_img_user_client);
             this.tab2.Controls.Add(this.pictureBox1);
             this.tab2.Controls.Add(this.lbl_ThongTinName);
             this.tab2.Controls.Add(this.label1);
@@ -286,9 +288,6 @@ namespace ChatTCP
             // tabControl1
             // 
             this.tabControl1.AllowDrop = true;
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tab1);
             this.tabControl1.Controls.Add(this.tab2);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
@@ -299,12 +298,22 @@ namespace ChatTCP
             this.tabControl1.Size = new System.Drawing.Size(659, 383);
             this.tabControl1.TabIndex = 0;
             // 
+            // btn_img_user_client
+            // 
+            this.btn_img_user_client.Location = new System.Drawing.Point(128, 326);
+            this.btn_img_user_client.Name = "btn_img_user_client";
+            this.btn_img_user_client.Size = new System.Drawing.Size(75, 23);
+            this.btn_img_user_client.TabIndex = 11;
+            this.btn_img_user_client.Text = "Đổi ảnh";
+            this.btn_img_user_client.UseVisualStyleBackColor = true;
+            this.btn_img_user_client.Click += new System.EventHandler(this.btn_img_user_client_Click);
+            // 
             // Client
             // 
             this.AcceptButton = this.btn_Send;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 407);
+            this.ClientSize = new System.Drawing.Size(685, 407);
             this.Controls.Add(this.tabControl1);
             this.Name = "Client";
             this.Text = "Client";
@@ -351,5 +360,6 @@ namespace ChatTCP
         private System.Windows.Forms.Label lbl_ThongTinIP;
         private System.Windows.Forms.Label lbl_ThongtinCong;
         private System.Windows.Forms.Button btn_image;
+        private System.Windows.Forms.Button btn_img_user_client;
     }
 }

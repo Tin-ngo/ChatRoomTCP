@@ -22,9 +22,18 @@ namespace ChatTCP
         Server srv;
         public int port = 9999;
 
+        OpenFileDialog open_img_user;
+        //gửi đường dẫn ảnh
+        String path_img;
+
         public Form1_start() {
             InitializeComponent();
             giaodiendau();
+
+            open_img_user = new OpenFileDialog();
+            open_img_user.FileName = "D:\\CSharp\\ChatRoomTCP\\ChatRoomTCP\\Image\\user.jfif";
+            this.path_img = open_img_user.FileName;
+            pictureBox2.Image = Image.FromFile(open_img_user.FileName);
 
             txtb_name_start.Text = "";
             txtb_portStart.Text = "9999";
@@ -47,6 +56,8 @@ namespace ChatTCP
             label1.Hide();
             btn_cancel_Start.Hide();
             btn_start.Hide();
+            pictureBox2.Hide();
+            btn_img_user.Hide();
 
             lbl_nameHost.Hide();
             lbl_portHost.Hide();
@@ -78,6 +89,7 @@ namespace ChatTCP
         {
             btn_Joinchat.Hide();
             btn_newchat.Hide();
+            pictureBox1.Hide();
 
             lbl_IpStart.Show();
             lbl_portStart.Show();
@@ -88,6 +100,8 @@ namespace ChatTCP
             label1.Show();
             btn_cancel_Start.Show();
             btn_start.Show();
+            pictureBox2.Show();
+            btn_img_user.Show();
         }
 
         private void btn_newchat_Click(object sender, EventArgs e)
@@ -129,6 +143,7 @@ namespace ChatTCP
 
 
         //join
+
         private void btn_start_Click(object sender, EventArgs e)
         {
             int port_JOIN = int.Parse(txtb_portStart.Text);
@@ -136,7 +151,7 @@ namespace ChatTCP
             String name_JOIN = txtb_name_start.Text;
             if (diachiIP_JOIN == "localhost") diachiIP_JOIN = "127.0.0.1";
             
-            Client_join = new Client(name_JOIN, diachiIP_JOIN, port_JOIN, this);
+            Client_join = new Client(name_JOIN, diachiIP_JOIN, port_JOIN, this, this.path_img);
             Client_join.Show();
             this.Hide();
         }
@@ -167,6 +182,18 @@ namespace ChatTCP
             if (Client_join != null)
             {
                 Client_join.Close();
+            }
+        }
+
+        private void btn_img_user_Click(object sender, EventArgs e)
+        {
+            open_img_user.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp; *.png; *.jfif";
+            if (open_img_user.ShowDialog() == DialogResult.OK)
+            {
+                Image i = Image.FromFile(open_img_user.FileName);
+                //MessageBox.Show(open_img_user.FileName);
+                pictureBox2.Image = i;
+                this.path_img = open_img_user.FileName;
             }
         }
     }

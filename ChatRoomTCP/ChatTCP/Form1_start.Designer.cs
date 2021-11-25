@@ -50,7 +50,10 @@ namespace ChatTCP
             this.txt_ipHost = new System.Windows.Forms.TextBox();
             this.btn_cancelHost = new System.Windows.Forms.Button();
             this.btn_connectHost = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btn_img_user = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_IpStart
@@ -250,12 +253,33 @@ namespace ChatTCP
             this.btn_connectHost.UseVisualStyleBackColor = true;
             this.btn_connectHost.Click += new System.EventHandler(this.btn_connectHost_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(333, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(213, 164);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 20;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btn_img_user
+            // 
+            this.btn_img_user.Location = new System.Drawing.Point(401, 194);
+            this.btn_img_user.Name = "btn_img_user";
+            this.btn_img_user.Size = new System.Drawing.Size(75, 23);
+            this.btn_img_user.TabIndex = 21;
+            this.btn_img_user.Text = "Sửa ảnh";
+            this.btn_img_user.UseVisualStyleBackColor = true;
+            this.btn_img_user.Click += new System.EventHandler(this.btn_img_user_Click);
+            // 
             // Form1_start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(666, 229);
+            this.Controls.Add(this.btn_img_user);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btn_connectHost);
             this.Controls.Add(this.btn_cancelHost);
             this.Controls.Add(this.txt_ipHost);
@@ -284,6 +308,7 @@ namespace ChatTCP
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_start_FormClosed);
             this.Load += new System.EventHandler(this.Form1_start_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,5 +336,7 @@ namespace ChatTCP
         private System.Windows.Forms.TextBox txt_ipHost;
         private System.Windows.Forms.Button btn_cancelHost;
         private System.Windows.Forms.Button btn_connectHost;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btn_img_user;
     }
 }

@@ -27,14 +27,23 @@ namespace ChatTCP
         NetworkStream ns;  // cung cấp luồng dữ liệu cơ bản để truy cập mạng
         BinaryWriter bw;     //Ghi các kiểu nguyên thủy ở dạng nhị phân vào một luồng và hỗ trợ viết các chuỗi trong một bảng mã cụ thể.
 
-        public Client(String Name, String IP, int Port, Form1_start frm)
+        String image_path;
+
+        public Client(String Name, String IP, int Port, Form1_start frm, String imgName)
         {
             this.name = Name;
             this.ip = IP;
             this.port = Port;
             this.F = frm;
+            this.image_path = imgName;
 
             InitializeComponent();
+
+            //ảnh đại diện
+            open_img_user = new OpenFileDialog();
+            open_img_user.FileName = image_path;
+            pictureBox1.Image = Image.FromFile(open_img_user.FileName);
+
             //xử lý lỗi đụng tài nguyên
             CheckForIllegalCrossThreadCalls = false; // khong cho check lỗi
 
@@ -66,7 +75,14 @@ namespace ChatTCP
                     client.Connect(IP);
                     //MessageBox.Show("Bạn đã gia nhập phòng chat", "Kết nối thành công với Server", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //  client.Send(Serialize("User:" + name_client + " đã tham gia vào phòng chat"));
-                    AddNotificationMessage("Bạn đã gia nhập phòng Chat " + client.LocalEndPoint);
+
+                    //
+
+                    Image img = Image.FromFile(this.image_path); //open_img_user.FileName
+                    client.Send(Serialize(img));
+
+                    //
+                    AddNotificationMessage("Bạn đã gia nhập phòng Chat " + client.RemoteEndPoint);
                     Show();
                 }
                 catch
@@ -143,6 +159,8 @@ namespace ChatTCP
                         {
                             AddReceiveMessage(message);
                         }
+                        
+
                     }
 
                     //nhận ảnh
@@ -329,7 +347,9 @@ namespace ChatTCP
 
                 //add ảnh vào label
                 Label ilabel = new Label();
-                Image i = Image.FromFile("D:\\CSharp\\ChatRoomTCP\\ChatRoomTCP\\Image\\user.jfif"); //D:\\CSharp\\ChatRoomTCP\\ChatRoomTCP\\icon\\icon1.jfif
+                // Image i = Image.FromFile("D:\\CSharp\\ChatRoomTCP\\ChatRoomTCP\\Image\\user.jfif"); ảnh phụ- bản 1
+                //Image i = Image.FromFile(open_img_user.FileName);
+                Image i = Image.FromFile(this.image_path);
                 i = resizeImage(i, new Size(30, 30));
                 //ilabel.Size = new Size(i.Width, i.Height);
                 ilabel.Width = i.Width + 20;
@@ -590,6 +610,19 @@ namespace ChatTCP
             else
             {
                 return;
+            }
+        }
+
+        OpenFileDialog open_img_user;
+        private void btn_img_user_client_Click(object sender, EventArgs e)
+        {
+            open_img_user.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp; *.png; *.jfif";
+            if (open_img_user.ShowDialog() == DialogResult.OK)
+            {
+                Image i = Image.FromFile(open_img_user.FileName);
+                i = resizeImage(i, new Size(260, 260));
+                pictureBox1.Image = i;
+                this.image_path = open_img_user.FileName;
             }
         }
     }

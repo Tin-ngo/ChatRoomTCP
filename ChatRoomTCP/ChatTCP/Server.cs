@@ -24,6 +24,12 @@ namespace ChatTCP
         Socket server;
         List<Socket> ClientList;
 
+        List<Image> ClientImage; // lưu ảnh client
+        List<int> PortClient;   // lưu cổng client
+        int port_client;          // lưu cổng client để so sánhs
+        int i;            // để lưu key
+
+
         public int port;
         public String name;
         public String ip;
@@ -31,6 +37,7 @@ namespace ChatTCP
 
         String tinnhan = "";
 
+        Image img_client;
 
 
 
@@ -41,7 +48,11 @@ namespace ChatTCP
             this.ip = IP;
             this.F = frm;
 
-            InitializeComponent();
+            InitializeComponent(); 
+            open_img_user = new OpenFileDialog();
+            open_img_user.FileName = "D:\\CSharp\\ChatRoomTCP\\ChatRoomTCP\\Image\\user.jfif";
+            pictureBox1.Image = Image.FromFile(open_img_user.FileName);
+
 
             this.Group_emote.Hide();
             this.btn_emotes_hide.Hide();
@@ -75,18 +86,31 @@ namespace ChatTCP
                 {
                     Send(item);
                 }
+                /*
+                for(int i = 0; i < ClientList.Count; i++)//ClientImage
+                {
+                    Send(ClientList[i]);
+                }
+                */
+
                 AddSendingMessage(txt_inputMess.Text);
                 txt_inputMess.Clear();
+
+
             }
             else
             {
                 Console.WriteLine("loi");
             }
+
         }
 
         void Connect()
         {
             ClientList = new List<Socket>();
+            ClientImage = new List<Image>();
+            PortClient = new List<int>();
+
             AddNotificationMessage("Phòng Chat Đã Sẵn Sàng ...");
 
             IP = new IPEndPoint(IPAddress.Any, port);
@@ -103,6 +127,29 @@ namespace ChatTCP
                         Socket client = server.Accept();
                         ClientList.Add(client);
                         AddNotificationMessage(client.RemoteEndPoint.ToString() + " Đã tham gia vào phòng chat");
+
+
+
+                        //nhận ảnh đại diện
+                        byte[] data = new byte[1024 * 5000];
+                        client.Receive(data);
+                        object obj_receive = Deserialize(data);
+                        if (obj_receive.GetType().ToString() == "System.Drawing.Bitmap")
+                        {
+                            Image img = (Image)Deserialize(data);
+                            this.img_client = img;
+
+                            // thêm cổng vafo để xác định ảnh dựa vào key của danh sách
+                            String client_RemoteEndPoint = client.RemoteEndPoint.ToString();
+                            String[] port_client = client_RemoteEndPoint.Split(":");
+                            PortClient.Add(Int32.Parse(port_client[1]));
+
+                            ClientImage.Add(img);
+                        }
+                        //
+
+
+
                         //String socket_clientconnect = client.RemoteEndPoint.ToString();
                         //String port_clientconnect = socket_clientconnect.Substring(socket_clientconnect.Length - 1, 1);
 
@@ -143,7 +190,9 @@ namespace ChatTCP
         {
             if (client != null && txt_inputMess.Text != string.Empty)
                 client.Send(Serialize(lbl_ThongTinName.Text+": " + txt_inputMess.Text));
+
         }
+
 
         void Receive(Object obj)
         {
@@ -183,7 +232,11 @@ namespace ChatTCP
                             }
                             else
                             {
-                                AddReceiveMessage(message);
+                                String RemoteEndPoint = client.RemoteEndPoint.ToString();
+                                String[] port = RemoteEndPoint.Split(":");
+                                port_client = Int32.Parse(port[1]);
+                                i = kiemtra(PortClient, port_client);
+                                AddReceiveMessage(message); // + client.RemoteEndPoint
                             }
                             
                             
@@ -204,7 +257,6 @@ namespace ChatTCP
                             }
 
                         }
-                        string time = DateTime.Now.ToString("HH:mm");
                         Add_img_receive(img);
                     }
                 }
@@ -308,7 +360,13 @@ namespace ChatTCP
                 ilabel.Height = i.Height;
                 //ilabel.ImageAlign = ContentAlignment.MiddleRight;
                 ilabel.TextAlign = ContentAlignment.MiddleRight;
-                ilabel.Image = i;
+                //ilabel.Image = i;
+                /* 2 dìng dưới là bản 1 bị lỗi khi 2 client đều gửi
+                img_client = resizeImage(img_client, new Size(30, 30));
+                ilabel.Image = img_client;
+                */
+                ClientImage[this.i] = resizeImage(ClientImage[this.i], new Size(30, 30));
+                ilabel.Image = ClientImage[this.i];
 
                 //thêm label text vào trước rồi thêm label ahr vào sau
                 //flowLayoutPanel1.Controls.Add(lbl);/////////////////////////
@@ -375,7 +433,9 @@ namespace ChatTCP
 
                 //add ảnh vào label
                 Label ilabel = new Label();
-                Image i = Image.FromFile("D:\\CSharp\\ChatRoomTCP\\ChatRoomTCP\\Image\\user.jfif"); //D:\\CSharp\\ChatRoomTCP\\ChatRoomTCP\\icon\\icon1.jfif
+                //Image i = Image.FromFile("D:\\CSharp\\ChatRoomTCP\\ChatRoomTCP\\Image\\user.jfif"); // phụ
+                Image i = Image.FromFile(open_img_user.FileName);
+                //pictureBox3.Image = i;   // test
                 i = resizeImage(i, new Size(30, 30));
                 //ilabel.Size = new Size(i.Width, i.Height);
                 ilabel.Width = i.Width + 20;
@@ -654,6 +714,26 @@ namespace ChatTCP
             }
         }
         ///hết gửi file
+        ///
+
+
+        // đổi ảnh đại diện
+
+        OpenFileDialog open_img_user;
+        private void btn_doianh_Click(object sender, EventArgs e)
+        {
+            open_img_user.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open_img_user.ShowDialog() == DialogResult.OK)
+            {
+                Image i = Image.FromFile(open_img_user.FileName);
+                i = resizeImage(i, new Size(260, 260));
+                pictureBox1.Image = i;
+            }
+        }
+
+
+
+
 
 
 
@@ -691,6 +771,20 @@ namespace ChatTCP
             lbl_sending.ForeColor = Color.Black;
             lbl_sending.Padding = new System.Windows.Forms.Padding(10);
             flowLayoutPanel1.Controls.Add(lbl_sending);
+        }
+
+
+        int kiemtra(List<int> listport, int port)
+        {
+            int i;
+            for (i = 0; i < listport.Count; i++)
+            {
+                if (listport[i] == port)
+                {
+                    return i;
+                }
+            }
+            return i;
         }
 
 

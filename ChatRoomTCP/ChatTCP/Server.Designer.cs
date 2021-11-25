@@ -48,18 +48,16 @@ namespace ChatTCP
             this.btn_Send = new System.Windows.Forms.Button();
             this.txt_inputMess = new System.Windows.Forms.TextBox();
             this.tab2 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_doianh = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.lbl_ThongTinName = new System.Windows.Forms.Label();
             this.lbl_ThongTinIP = new System.Windows.Forms.Label();
             this.lbl_ThongtinCong = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tab3 = new System.Windows.Forms.TabPage();
             this.list_all = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.btn_file = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
             this.Group_emote.SuspendLayout();
@@ -72,15 +70,11 @@ namespace ChatTCP
             this.tab2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tab3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.AllowDrop = true;
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tab1);
             this.tabControl1.Controls.Add(this.tab2);
             this.tabControl1.Controls.Add(this.tab3);
@@ -89,7 +83,7 @@ namespace ChatTCP
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(659, 356);
+            this.tabControl1.Size = new System.Drawing.Size(664, 356);
             this.tabControl1.TabIndex = 1;
             // 
             // tab1
@@ -104,7 +98,7 @@ namespace ChatTCP
             this.tab1.Location = new System.Drawing.Point(4, 24);
             this.tab1.Name = "tab1";
             this.tab1.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1.Size = new System.Drawing.Size(651, 328);
+            this.tab1.Size = new System.Drawing.Size(656, 328);
             this.tab1.TabIndex = 0;
             this.tab1.Text = "Message";
             this.tab1.UseVisualStyleBackColor = true;
@@ -112,7 +106,7 @@ namespace ChatTCP
             // btn_image
             // 
             this.btn_image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_image.Location = new System.Drawing.Point(568, 299);
+            this.btn_image.Location = new System.Drawing.Point(573, 299);
             this.btn_image.Name = "btn_image";
             this.btn_image.Size = new System.Drawing.Size(75, 23);
             this.btn_image.TabIndex = 5;
@@ -134,7 +128,7 @@ namespace ChatTCP
             this.Group_emote.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Group_emote.Location = new System.Drawing.Point(428, 192);
             this.Group_emote.Name = "Group_emote";
-            this.Group_emote.Size = new System.Drawing.Size(195, 100);
+            this.Group_emote.Size = new System.Drawing.Size(200, 100);
             this.Group_emote.TabIndex = 2;
             this.Group_emote.TabStop = false;
             this.Group_emote.Text = "Cảm xúc";
@@ -214,14 +208,14 @@ namespace ChatTCP
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 6);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(637, 287);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(642, 287);
             this.flowLayoutPanel1.TabIndex = 2;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // btn_emotes_hide
             // 
             this.btn_emotes_hide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_emotes_hide.Location = new System.Drawing.Point(488, 299);
+            this.btn_emotes_hide.Location = new System.Drawing.Point(493, 299);
             this.btn_emotes_hide.Name = "btn_emotes_hide";
             this.btn_emotes_hide.Size = new System.Drawing.Size(75, 23);
             this.btn_emotes_hide.TabIndex = 5;
@@ -232,7 +226,7 @@ namespace ChatTCP
             // btn_emotes
             // 
             this.btn_emotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_emotes.Location = new System.Drawing.Point(489, 299);
+            this.btn_emotes.Location = new System.Drawing.Point(494, 299);
             this.btn_emotes.Name = "btn_emotes";
             this.btn_emotes.Size = new System.Drawing.Size(75, 23);
             this.btn_emotes.TabIndex = 3;
@@ -243,7 +237,7 @@ namespace ChatTCP
             // btn_Send
             // 
             this.btn_Send.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Send.Location = new System.Drawing.Point(409, 299);
+            this.btn_Send.Location = new System.Drawing.Point(414, 299);
             this.btn_Send.Name = "btn_Send";
             this.btn_Send.Size = new System.Drawing.Size(75, 23);
             this.btn_Send.TabIndex = 2;
@@ -254,15 +248,16 @@ namespace ChatTCP
             // txt_inputMess
             // 
             this.txt_inputMess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_inputMess.Location = new System.Drawing.Point(6, 299);
+            this.txt_inputMess.Location = new System.Drawing.Point(11, 299);
             this.txt_inputMess.Name = "txt_inputMess";
             this.txt_inputMess.Size = new System.Drawing.Size(397, 23);
             this.txt_inputMess.TabIndex = 1;
             // 
             // tab2
             // 
-            this.tab2.Controls.Add(this.label2);
             this.tab2.Controls.Add(this.pictureBox1);
+            this.tab2.Controls.Add(this.btn_doianh);
+            this.tab2.Controls.Add(this.label2);
             this.tab2.Controls.Add(this.lbl_ThongTinName);
             this.tab2.Controls.Add(this.lbl_ThongTinIP);
             this.tab2.Controls.Add(this.lbl_ThongtinCong);
@@ -270,10 +265,30 @@ namespace ChatTCP
             this.tab2.Location = new System.Drawing.Point(4, 24);
             this.tab2.Name = "tab2";
             this.tab2.Padding = new System.Windows.Forms.Padding(3);
-            this.tab2.Size = new System.Drawing.Size(651, 328);
+            this.tab2.Size = new System.Drawing.Size(656, 328);
             this.tab2.TabIndex = 1;
             this.tab2.Text = "Your Profile";
             this.tab2.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(260, 259);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_doianh
+            // 
+            this.btn_doianh.Location = new System.Drawing.Point(120, 299);
+            this.btn_doianh.Name = "btn_doianh";
+            this.btn_doianh.Size = new System.Drawing.Size(75, 23);
+            this.btn_doianh.TabIndex = 8;
+            this.btn_doianh.Text = "Đổi ảnh";
+            this.btn_doianh.UseVisualStyleBackColor = true;
+            this.btn_doianh.Click += new System.EventHandler(this.btn_doianh_Click);
             // 
             // label2
             // 
@@ -283,17 +298,6 @@ namespace ChatTCP
             this.label2.Size = new System.Drawing.Size(45, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "Name: ";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(23, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(260, 259);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // lbl_ThongTinName
             // 
@@ -335,7 +339,7 @@ namespace ChatTCP
             this.tab3.Controls.Add(this.list_all);
             this.tab3.Location = new System.Drawing.Point(4, 24);
             this.tab3.Name = "tab3";
-            this.tab3.Size = new System.Drawing.Size(651, 328);
+            this.tab3.Size = new System.Drawing.Size(656, 328);
             this.tab3.TabIndex = 2;
             this.tab3.Text = "Trực tuyến";
             this.tab3.UseVisualStyleBackColor = true;
@@ -349,28 +353,6 @@ namespace ChatTCP
             this.list_all.Size = new System.Drawing.Size(212, 289);
             this.list_all.TabIndex = 0;
             // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(680, 239);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(680, 210);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // btn_file
             // 
             this.btn_file.Location = new System.Drawing.Point(680, 335);
@@ -381,28 +363,15 @@ namespace ChatTCP
             this.btn_file.UseVisualStyleBackColor = true;
             this.btn_file.Click += new System.EventHandler(this.btn_file_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(690, 112);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(61, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
-            // 
             // Server
             // 
             this.AcceptButton = this.btn_Send;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(763, 373);
-            this.Controls.Add(this.pictureBox2);
+            this.ClientSize = new System.Drawing.Size(764, 373);
             this.Controls.Add(this.btn_file);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button2);
             this.Name = "Server";
             this.Text = "Server";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Server_FormClosing);
@@ -422,7 +391,6 @@ namespace ChatTCP
             this.tab2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tab3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -440,7 +408,6 @@ namespace ChatTCP
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tab3;
         private System.Windows.Forms.ColumnHeader cloum1;
-        private Button button2;
         private Button btn_emotes;
         private GroupBox Group_emote;
         private PictureBox icon6;
@@ -451,12 +418,11 @@ namespace ChatTCP
         private PictureBox icon1;
         private Button btn_emotes_hide;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Button button3;
-        private PictureBox pictureBox1;
         private ListBox list_all;
         private Button btn_image;
         private Label label2;
         private Button btn_file;
-        private PictureBox pictureBox2;
+        private Button btn_doianh;
+        private PictureBox pictureBox1;
     }
 }
