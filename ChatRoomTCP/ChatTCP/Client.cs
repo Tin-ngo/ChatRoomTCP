@@ -6,6 +6,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -139,38 +140,68 @@ namespace ChatTCP
                 {
                     // 1024 byte * 5000  <=> 5mb
                     byte[] data = new byte[1024 * 5000];
-                    client.Receive(data);   // đã nhận được data
+                    int receivedBytesLen = client.Receive(data);   // đã nhận được data
 
-                    object obj = Deserialize(data);
-
-                    if (obj.GetType().ToString() == "System.String")
+                    try
                     {
-                        // ép dữ liệu nhận đang ở dạng byte về kiểu object rồi ép thành kiểu string
-                        string message = (string)Deserialize(data);
-                        //đưa tin nhắn đã chuyển thành string lên khung chat
-                        //AddReceiveMessage(message);
-                        //nếu gửi icon (ký hiệu đặc biệt)
-                        if (message == "icon1.jfif" || message == "icon2.jpg" || message == "icon3.png"
-                            || message == "icon4.png" || message == "icon5.jfif" || message == "icon6.jfif")
+                        object obj = Deserialize(data);
+
+                        if (obj.GetType().ToString() == "System.String")
                         {
-                            add_icon_receive(message);
+                            // ép dữ liệu nhận đang ở dạng byte về kiểu object rồi ép thành kiểu string
+                            string message = (string)Deserialize(data);
+                            //đưa tin nhắn đã chuyển thành string lên khung chat
+                            //AddReceiveMessage(message);
+                            //nếu gửi icon (ký hiệu đặc biệt)
+                            if (message == "icon1.jfif" || message == "icon2.jpg" || message == "icon3.png"
+                                || message == "icon4.png" || message == "icon5.jfif" || message == "icon6.jfif")
+                            {
+                                add_icon_receive(message);
+                            }
+                            else
+                            {
+                                AddReceiveMessage(message);
+                            }
                         }
-                        else
+
+                        //nhận ảnh
+                        if (obj.GetType().ToString() == "System.Drawing.Bitmap")
                         {
-                            AddReceiveMessage(message);
+                            Image img = (Image)Deserialize(data);
+                            Add_img_receive(img);
                         }
+                        //hết nhận ảnh
+                    }
+                    //catch để nhận file
+                    catch
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                            saveFileDialog1.FilterIndex = 2;
+                            saveFileDialog1.RestoreDirectory = true;
+
+                            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                            {
+                                //MessageBox.Show(saveFileDialog1.FileName.ToString());
+                                int fileNameLen = BitConverter.ToInt32(data, 0);
+                                string fileName = saveFileDialog1.FileName.ToString();// Encoding.ASCII.GetString(data, 4, fileNameLen);
+                                BinaryWriter bWrite = new BinaryWriter(File.Open(fileName, FileMode.Create));
+                                bWrite.Write(data, 4 + fileNameLen, receivedBytesLen - 4 - fileNameLen);
+                                bWrite.Close();
+                            }
+                            //AddReceiveMessage("Đã nhận được file"+ saveFileDialog1);
+                        }));
                         
 
+                        /*
+                        int fileNameLen = BitConverter.ToInt32(data, 0);
+                        string fileName = "C:\\Users\\Admin\\Desktop\\DoAnCS3\\File2\\File_nhan\\tintintin.txt";// Encoding.ASCII.GetString(data, 4, fileNameLen);
+                        BinaryWriter bWrite = new BinaryWriter(File.Open(fileName, FileMode.Create));
+                        bWrite.Write(data, 4 + fileNameLen, receivedBytesLen - 4 - fileNameLen);
+                        bWrite.Close();
+                        */
                     }
-
-                    //nhận ảnh
-                    if (obj.GetType().ToString() == "System.Drawing.Bitmap")
-                    {
-                        Image img = (Image)Deserialize(data);
-                        Add_img_receive(img);
-                    }
-                    //hết nhận ảnh
-
 
                 }
             }
@@ -395,7 +426,8 @@ namespace ChatTCP
             {
                 // gửi theo kiểu byte - đã phân mảnh ra kiểu byte trong hàm Serialize rồi
                 // gửi cái tin nhắn nhập trong textbox mà đa chuyển thành kiểu byte bằng hàm Serialize
-                client.Send(Serialize(name_client + " : " + txt_inputMess_client.Text));
+                //client.Send(Serialize(name_client + " : " + txt_inputMess_client.Text));
+                client.Send(Serialize(txt_inputMess_client.Text));
             }
 
         }
@@ -513,9 +545,6 @@ namespace ChatTCP
             client.Send(Serialize(s));
         }
 
-
-
-
         void add_icon_send(String s)
         {
             loadimage_send("D:\\CSharp\\ChatRoomTCP\\ChatRoomTCP\\icon\\" + s);
@@ -625,5 +654,85 @@ namespace ChatTCP
                 this.image_path = open_img_user.FileName;
             }
         }
+
+
+
+
+
+
+
+        /// <summary>
+        ///Gửi file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_file_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            //openFileImage.Filter = "Images |*.bmp;*.jpg;*.png;*.gif;*.ico;*.jfif";
+            openFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"; ;
+            openFile.Multiselect = false;
+            openFile.FileName = "";
+            DialogResult result = openFile.ShowDialog();
+            //Lấy file từ openfiledialog(trên) và gửi(dưới)
+            if (result == DialogResult.OK)
+            {
+                FileInfo fi = new FileInfo(openFile.FileName.ToString());
+                if (fi.Length > 1024 * 5000)
+                {
+                    MessageBox.Show("Kích thước ảnh không được lớn hơn 5MB");
+                    return;
+                }
+                // MessageBox.Show(openFileImage.FileName.ToString());
+                //MessageBox.Show(openFileImage.SafeFileName.ToString());
+                txt_inputMess_client.Text = openFile.SafeFileName.ToString();
+                if (openFile.SafeFileName.ToString() != null)
+                {
+                    //Send(item);/
+                    Send();
+                    Send_File(client, openFile.FileName.ToString());
+                    AddSendingMessage(txt_inputMess_client.Text);
+                    txt_inputMess_client.Clear();
+                }
+                else
+                {
+                    Console.WriteLine("loi");
+                }
+                //////////////////
+            }
+            else
+            {
+                return;
+            }
+        }
+
+
+
+        public void Send_File(Socket client, String path)
+        {
+            string fileName = path;// "c:\\filetosend.txt";
+            byte[] fileNameByte = Encoding.ASCII.GetBytes(fileName);
+            byte[] fileNameLen = BitConverter.GetBytes(fileNameByte.Length);
+            byte[] fileData = File.ReadAllBytes(fileName);
+            //clientData <=> DataSend
+            byte[] DataSend = new byte[4 + fileNameByte.Length + fileData.Length];
+
+            fileNameLen.CopyTo(DataSend, 0);
+            fileNameByte.CopyTo(DataSend, 4);
+            fileData.CopyTo(DataSend, 4 + fileNameByte.Length);
+            try
+            {
+                client.Send(DataSend);
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi gửi file");
+            }
+        }
+
+        //hết gửi file
+
+
+
     }
 }

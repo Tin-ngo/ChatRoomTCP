@@ -369,7 +369,7 @@ namespace ChatTCP
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(764, 373);
+            this.ClientSize = new System.Drawing.Size(770, 373);
             this.Controls.Add(this.btn_file);
             this.Controls.Add(this.tabControl1);
             this.Name = "Server";

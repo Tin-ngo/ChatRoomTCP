@@ -189,12 +189,14 @@ namespace ChatTCP
         void Send(Socket client)
         {
             if (client != null && txt_inputMess.Text != string.Empty)
-                client.Send(Serialize(lbl_ThongTinName.Text+": " + txt_inputMess.Text));
+                // client.Send(Serialize(lbl_ThongTinName.Text+": " + txt_inputMess.Text));
+                client.Send(Serialize(txt_inputMess.Text));
 
         }
 
 
-        void Receive(Object obj)
+        /*
+        void Receive dùng chính(Object obj)
         {
             Socket client = obj as Socket;
             // cố gắng nhận tin nếu có lỗi thì sẽ thực thi catch ở dưới
@@ -204,7 +206,6 @@ namespace ChatTCP
                 {
                     byte[] data = new byte[1024 * 5000];
                     client.Receive(data);
-                    BigData.AddRange(data);   //|file
 
                     object obj_receive = Deserialize(data);
 
@@ -274,6 +275,130 @@ namespace ChatTCP
                 client.Close();
             }
         }
+        */
+
+        void Receive(Object obj)
+        {
+            Socket client = obj as Socket;
+            // cố gắng nhận tin nếu có lỗi thì sẽ thực thi catch ở dưới
+            try
+            {
+                while (true)
+                {
+                    byte[] data = new byte[1024 * 5000];
+                    int receivedBytesLen = client.Receive(data);
+
+                    try
+                    {
+                        object obj_receive = Deserialize(data);
+
+                        if (obj_receive.GetType().ToString() == "System.String")
+                        {
+                            string message = (string)Deserialize(data);
+                            // để hiển thị tin nhắn của client lên tất cả client còn lại
+                            foreach (Socket item in ClientList)
+                            {
+                                //item != null (nếu tin nhắn khác null)  && item!= client (và nếu tin nhắn khác của client đang gửi)
+                                if (item != null && item != client)
+                                    item.Send(Serialize(message));
+                            }
+                            if (message != null && message != "")
+                            {
+                                //GetMessage(message);
+                                this.tinnhan = message;
+                                Label lbl_receive = new Label();
+                                lbl_receive.Text = this.tinnhan;
+                                //AddReceiveMessage(message);
+                                if (message == "icon1.jfif" || message == "icon2.jpg" || message == "icon3.png"
+                                    || message == "icon4.png" || message == "icon5.jfif" || message == "icon6.jfif")
+                                {
+                                    add_image_receive(message);
+                                }
+                                else
+                                {
+                                    String RemoteEndPoint = client.RemoteEndPoint.ToString();
+                                    String[] port = RemoteEndPoint.Split(":");
+                                    port_client = Int32.Parse(port[1]);
+                                    i = kiemtra(PortClient, port_client);
+                                    AddReceiveMessage(message); // + client.RemoteEndPoint
+                                }
+
+
+                            }
+                        } //end if
+
+                        //nhận ảnh
+                        if (obj_receive.GetType().ToString() == "System.Drawing.Bitmap")
+                        {
+
+                            Image img = (Image)Deserialize(data);
+                            // gửi hết cho toàn  client
+                            foreach (Socket item in ClientList)
+                            {
+                                if (client != null && item != client)
+                                {
+                                    item.Send(Serialize(img));
+                                }
+
+                            }
+                            Add_img_receive(img);
+                        }
+
+                    }
+                    catch
+                    {
+
+                        this.Invoke(new Action(() =>
+                        {
+                            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                            saveFileDialog1.FilterIndex = 2;
+                            saveFileDialog1.RestoreDirectory = true;
+
+                            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                            {
+                                //MessageBox.Show(saveFileDialog1.FileName.ToString());
+                                int fileNameLen = BitConverter.ToInt32(data, 0);
+                                string fileName = saveFileDialog1.FileName.ToString();// Encoding.ASCII.GetString(data, 4, fileNameLen);
+                                BinaryWriter bWrite = new BinaryWriter(File.Open(fileName, FileMode.Create));
+                                bWrite.Write(data, 4 + fileNameLen, receivedBytesLen - 4 - fileNameLen);
+                                bWrite.Close();
+                                foreach (Socket item in ClientList)
+                                {
+                                    if (item != null && item != client)
+                                    {
+                                        //Send(item);/
+                                        Send_File(item, fileName);
+                                        Send(item);
+                                    }
+                                }
+                            }
+                            String mess_file = saveFileDialog1.FileName;
+                            //String[] words = mess_file.Split("\");
+
+                           // AddReceiveMessage(words[words.Length - 1]);
+                        }));
+                    }
+                    
+                }
+            }
+            catch
+            {
+                ClientList.Remove(client);
+                AddNotificationMessage(client.RemoteEndPoint + ": đã thoát khỏi phòng Chat");
+                //list_all.Items.Remove(client.RemoteEndPoint);
+                list_all.Items.Clear();
+                foreach (Socket item in ClientList)
+                {
+                    list_all.Items.Add(item.RemoteEndPoint.ToString());
+                }
+                client.Close();
+            }
+        }
+
+
+
+
 
         //nâng cao
         void AddNotificationMessage(String s)
@@ -696,25 +821,77 @@ namespace ChatTCP
 
         ///Gửi file
 
-
-        List<byte> BigData = new List<byte>();
-        FileSendReceive FileBase;
         private void btn_file_Click(object sender, EventArgs e)
         {
-            OpenFileDialog Ofd = new OpenFileDialog();
-            if (Ofd.ShowDialog() == DialogResult.OK)
+            OpenFileDialog openFileImage = new OpenFileDialog();
+            //openFileImage.Filter = "Images |*.bmp;*.jpg;*.png;*.gif;*.ico;*.jfif";
+            openFileImage.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"; ;
+            openFileImage.Multiselect = false;
+            openFileImage.FileName = "";
+            DialogResult result = openFileImage.ShowDialog();
+
+            if (result == DialogResult.OK)
             {
-                string fileName = Ofd.FileName;
-                txt_inputMess.Text = Ofd.SafeFileName;   //Nhận tên tệp và phần mở rộng cho tệp đã chọn trong hộp thoại, không bao gồm phần mở rộng
-                List<string> subType = fileName.Split('.').ToList();
+                FileInfo fi = new FileInfo(openFileImage.FileName.ToString());
+                if (fi.Length > 1024 * 5000)
+                {
+                    MessageBox.Show("Kích thước ảnh không được lớn hơn 5MB");
+                    return;
+                }
+                // MessageBox.Show(openFileImage.FileName.ToString());
+                //MessageBox.Show(openFileImage.SafeFileName.ToString());
+                txt_inputMess.Text = openFileImage.SafeFileName.ToString();
+                if (openFileImage.SafeFileName.ToString() != null)
+                {
+                    foreach (Socket item in ClientList)
+                    {
+                        //Send(item);/
+                        Send_File(item, openFileImage.FileName.ToString());
+                        Send(item);
+                    }
+                    AddSendingMessage(txt_inputMess.Text);
+                    txt_inputMess.Clear();
+                }
+                else
+                {
+                    Console.WriteLine("loi");
+                }
 
-                List<byte> Data = File.ReadAllBytes(fileName).ToList();
+                //////////////////
+            }
+            else
+            {
+                return;
+            }
+            
+        }
 
-                FileBase = new FileSendReceive(Ofd.SafeFileName, subType[subType.Count - 1], Data);
+
+
+        public void Send_File(Socket client, String path)
+        {
+            string fileName = path;// "c:\\filetosend.txt";
+            byte[] fileNameByte = Encoding.ASCII.GetBytes(fileName);
+            byte[] fileNameLen = BitConverter.GetBytes(fileNameByte.Length);
+            byte[] fileData = File.ReadAllBytes(fileName); //file để gửi
+            byte[] clientData = new byte[4 + fileNameByte.Length + fileData.Length];
+
+            fileNameLen.CopyTo(clientData, 0);
+            fileNameByte.CopyTo(clientData, 4);
+            fileData.CopyTo(clientData, 4 + fileNameByte.Length);
+            try
+            {
+                client.Send(clientData);
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi gửi file");
             }
         }
+
         ///hết gửi file
-        ///
+
+
 
 
         // đổi ảnh đại diện
@@ -774,6 +951,7 @@ namespace ChatTCP
         }
 
 
+        //để lấy công dựa vào key i
         int kiemtra(List<int> listport, int port)
         {
             int i;
