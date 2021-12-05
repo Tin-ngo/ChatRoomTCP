@@ -30,7 +30,9 @@ namespace ChatTCP
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Client));
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tab2 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
             this.btn_img_user_client = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_ThongTinName = new System.Windows.Forms.Label();
@@ -38,7 +40,10 @@ namespace ChatTCP
             this.lbl_ThongTinIP = new System.Windows.Forms.Label();
             this.lbl_ThongtinCong = new System.Windows.Forms.Label();
             this.tab1 = new System.Windows.Forms.TabPage();
-            this.btn_image = new System.Windows.Forms.Button();
+            this.btn_emotes_hide = new System.Windows.Forms.PictureBox();
+            this.btn_emotes = new System.Windows.Forms.PictureBox();
+            this.btn_file = new System.Windows.Forms.PictureBox();
+            this.btn_image = new System.Windows.Forms.PictureBox();
             this.Group_emote = new System.Windows.Forms.GroupBox();
             this.icon6 = new System.Windows.Forms.PictureBox();
             this.icon5 = new System.Windows.Forms.PictureBox();
@@ -47,16 +52,20 @@ namespace ChatTCP
             this.icon2 = new System.Windows.Forms.PictureBox();
             this.icon1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_emotes = new System.Windows.Forms.Button();
-            this.btn_emotes_hide = new System.Windows.Forms.Button();
             this.btn_Send = new System.Windows.Forms.Button();
             this.txt_inputMess_client = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.btn_file = new System.Windows.Forms.Button();
+            this.tab3 = new System.Windows.Forms.TabPage();
+            this.txt_input_ChatRieng = new System.Windows.Forms.TextBox();
+            this.btn_send_ChatRieng = new System.Windows.Forms.Button();
+            this.List_ChatRieng_Client = new System.Windows.Forms.ListBox();
             this.tab2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tab1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_emotes_hide)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_emotes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_file)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_image)).BeginInit();
             this.Group_emote.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon5)).BeginInit();
@@ -65,10 +74,12 @@ namespace ChatTCP
             ((System.ComponentModel.ISupportInitialize)(this.icon2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon1)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tab3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab2
             // 
+            this.tab2.Controls.Add(this.label2);
             this.tab2.Controls.Add(this.btn_img_user_client);
             this.tab2.Controls.Add(this.pictureBox1);
             this.tab2.Controls.Add(this.lbl_ThongTinName);
@@ -82,6 +93,15 @@ namespace ChatTCP
             this.tab2.TabIndex = 1;
             this.tab2.Text = "Your Profile";
             this.tab2.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(369, 181);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 15);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Name: ";
             // 
             // btn_img_user_client
             // 
@@ -107,11 +127,11 @@ namespace ChatTCP
             // lbl_ThongTinName
             // 
             this.lbl_ThongTinName.AutoSize = true;
-            this.lbl_ThongTinName.Location = new System.Drawing.Point(369, 178);
+            this.lbl_ThongTinName.Location = new System.Drawing.Point(420, 181);
             this.lbl_ThongTinName.Name = "lbl_ThongTinName";
-            this.lbl_ThongTinName.Size = new System.Drawing.Size(45, 15);
+            this.lbl_ThongTinName.Size = new System.Drawing.Size(10, 15);
             this.lbl_ThongTinName.TabIndex = 9;
-            this.lbl_ThongTinName.Text = "Name: ";
+            this.lbl_ThongTinName.Text = ".";
             // 
             // label1
             // 
@@ -142,11 +162,12 @@ namespace ChatTCP
             // 
             // tab1
             // 
+            this.tab1.Controls.Add(this.btn_emotes_hide);
+            this.tab1.Controls.Add(this.btn_emotes);
+            this.tab1.Controls.Add(this.btn_file);
             this.tab1.Controls.Add(this.btn_image);
             this.tab1.Controls.Add(this.Group_emote);
             this.tab1.Controls.Add(this.flowLayoutPanel1);
-            this.tab1.Controls.Add(this.btn_emotes);
-            this.tab1.Controls.Add(this.btn_emotes_hide);
             this.tab1.Controls.Add(this.btn_Send);
             this.tab1.Controls.Add(this.txt_inputMess_client);
             this.tab1.Location = new System.Drawing.Point(4, 24);
@@ -158,14 +179,48 @@ namespace ChatTCP
             this.tab1.UseVisualStyleBackColor = true;
             this.tab1.Click += new System.EventHandler(this.tab1_Click);
             // 
+            // btn_emotes_hide
+            // 
+            this.btn_emotes_hide.Image = ((System.Drawing.Image)(resources.GetObject("btn_emotes_hide.Image")));
+            this.btn_emotes_hide.Location = new System.Drawing.Point(527, 319);
+            this.btn_emotes_hide.Name = "btn_emotes_hide";
+            this.btn_emotes_hide.Size = new System.Drawing.Size(39, 33);
+            this.btn_emotes_hide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_emotes_hide.TabIndex = 8;
+            this.btn_emotes_hide.TabStop = false;
+            this.btn_emotes_hide.Click += new System.EventHandler(this.btn_emotes_hide_Click);
+            // 
+            // btn_emotes
+            // 
+            this.btn_emotes.Image = ((System.Drawing.Image)(resources.GetObject("btn_emotes.Image")));
+            this.btn_emotes.Location = new System.Drawing.Point(527, 320);
+            this.btn_emotes.Name = "btn_emotes";
+            this.btn_emotes.Size = new System.Drawing.Size(39, 33);
+            this.btn_emotes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_emotes.TabIndex = 8;
+            this.btn_emotes.TabStop = false;
+            this.btn_emotes.Click += new System.EventHandler(this.btn_emotes_Click);
+            // 
+            // btn_file
+            // 
+            this.btn_file.Image = ((System.Drawing.Image)(resources.GetObject("btn_file.Image")));
+            this.btn_file.Location = new System.Drawing.Point(609, 322);
+            this.btn_file.Name = "btn_file";
+            this.btn_file.Size = new System.Drawing.Size(39, 30);
+            this.btn_file.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_file.TabIndex = 9;
+            this.btn_file.TabStop = false;
+            this.btn_file.Click += new System.EventHandler(this.btn_file_Click);
+            // 
             // btn_image
             // 
-            this.btn_image.Location = new System.Drawing.Point(572, 328);
+            this.btn_image.Image = ((System.Drawing.Image)(resources.GetObject("btn_image.Image")));
+            this.btn_image.Location = new System.Drawing.Point(572, 321);
             this.btn_image.Name = "btn_image";
-            this.btn_image.Size = new System.Drawing.Size(75, 23);
+            this.btn_image.Size = new System.Drawing.Size(31, 30);
+            this.btn_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_image.TabIndex = 11;
-            this.btn_image.Text = "Ảnh";
-            this.btn_image.UseVisualStyleBackColor = true;
+            this.btn_image.TabStop = false;
             this.btn_image.Click += new System.EventHandler(this.btn_image_Click);
             // 
             // Group_emote
@@ -259,29 +314,9 @@ namespace ChatTCP
             this.flowLayoutPanel1.Size = new System.Drawing.Size(641, 314);
             this.flowLayoutPanel1.TabIndex = 10;
             // 
-            // btn_emotes
-            // 
-            this.btn_emotes.Location = new System.Drawing.Point(491, 329);
-            this.btn_emotes.Name = "btn_emotes";
-            this.btn_emotes.Size = new System.Drawing.Size(75, 23);
-            this.btn_emotes.TabIndex = 8;
-            this.btn_emotes.Text = "Cảm Xúc";
-            this.btn_emotes.UseVisualStyleBackColor = true;
-            this.btn_emotes.Click += new System.EventHandler(this.btn_emotes_Click);
-            // 
-            // btn_emotes_hide
-            // 
-            this.btn_emotes_hide.Location = new System.Drawing.Point(491, 328);
-            this.btn_emotes_hide.Name = "btn_emotes_hide";
-            this.btn_emotes_hide.Size = new System.Drawing.Size(75, 23);
-            this.btn_emotes_hide.TabIndex = 7;
-            this.btn_emotes_hide.Text = "Ẩn";
-            this.btn_emotes_hide.UseVisualStyleBackColor = true;
-            this.btn_emotes_hide.Click += new System.EventHandler(this.btn_emotes_hide_Click);
-            // 
             // btn_Send
             // 
-            this.btn_Send.Location = new System.Drawing.Point(407, 328);
+            this.btn_Send.Location = new System.Drawing.Point(446, 327);
             this.btn_Send.Name = "btn_Send";
             this.btn_Send.Size = new System.Drawing.Size(75, 23);
             this.btn_Send.TabIndex = 2;
@@ -293,7 +328,7 @@ namespace ChatTCP
             // 
             this.txt_inputMess_client.Location = new System.Drawing.Point(6, 328);
             this.txt_inputMess_client.Name = "txt_inputMess_client";
-            this.txt_inputMess_client.Size = new System.Drawing.Size(395, 23);
+            this.txt_inputMess_client.Size = new System.Drawing.Size(434, 23);
             this.txt_inputMess_client.TabIndex = 1;
             this.txt_inputMess_client.TextChanged += new System.EventHandler(this.txt_inputMess_TextChanged);
             // 
@@ -302,6 +337,7 @@ namespace ChatTCP
             this.tabControl1.AllowDrop = true;
             this.tabControl1.Controls.Add(this.tab1);
             this.tabControl1.Controls.Add(this.tab2);
+            this.tabControl1.Controls.Add(this.tab3);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
@@ -310,23 +346,50 @@ namespace ChatTCP
             this.tabControl1.Size = new System.Drawing.Size(659, 383);
             this.tabControl1.TabIndex = 0;
             // 
-            // btn_file
+            // tab3
             // 
-            this.btn_file.Location = new System.Drawing.Point(673, 365);
-            this.btn_file.Name = "btn_file";
-            this.btn_file.Size = new System.Drawing.Size(75, 23);
-            this.btn_file.TabIndex = 1;
-            this.btn_file.Text = "File";
-            this.btn_file.UseVisualStyleBackColor = true;
-            this.btn_file.Click += new System.EventHandler(this.btn_file_Click);
+            this.tab3.Controls.Add(this.txt_input_ChatRieng);
+            this.tab3.Controls.Add(this.btn_send_ChatRieng);
+            this.tab3.Controls.Add(this.List_ChatRieng_Client);
+            this.tab3.Location = new System.Drawing.Point(4, 24);
+            this.tab3.Name = "tab3";
+            this.tab3.Size = new System.Drawing.Size(651, 355);
+            this.tab3.TabIndex = 2;
+            this.tab3.Text = "Chat Server - Riêng";
+            this.tab3.UseVisualStyleBackColor = true;
+            // 
+            // txt_input_ChatRieng
+            // 
+            this.txt_input_ChatRieng.Location = new System.Drawing.Point(26, 320);
+            this.txt_input_ChatRieng.Name = "txt_input_ChatRieng";
+            this.txt_input_ChatRieng.Size = new System.Drawing.Size(516, 23);
+            this.txt_input_ChatRieng.TabIndex = 2;
+            // 
+            // btn_send_ChatRieng
+            // 
+            this.btn_send_ChatRieng.Location = new System.Drawing.Point(548, 319);
+            this.btn_send_ChatRieng.Name = "btn_send_ChatRieng";
+            this.btn_send_ChatRieng.Size = new System.Drawing.Size(75, 23);
+            this.btn_send_ChatRieng.TabIndex = 1;
+            this.btn_send_ChatRieng.Text = "Gửi";
+            this.btn_send_ChatRieng.UseVisualStyleBackColor = true;
+            this.btn_send_ChatRieng.Click += new System.EventHandler(this.btn_send_ChatRieng_Click);
+            // 
+            // List_ChatRieng_Client
+            // 
+            this.List_ChatRieng_Client.FormattingEnabled = true;
+            this.List_ChatRieng_Client.ItemHeight = 15;
+            this.List_ChatRieng_Client.Location = new System.Drawing.Point(26, 19);
+            this.List_ChatRieng_Client.Name = "List_ChatRieng_Client";
+            this.List_ChatRieng_Client.Size = new System.Drawing.Size(597, 289);
+            this.List_ChatRieng_Client.TabIndex = 0;
             // 
             // Client
             // 
             this.AcceptButton = this.btn_Send;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 407);
-            this.Controls.Add(this.btn_file);
+            this.ClientSize = new System.Drawing.Size(685, 407);
             this.Controls.Add(this.tabControl1);
             this.Name = "Client";
             this.Text = "Client";
@@ -336,6 +399,10 @@ namespace ChatTCP
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_emotes_hide)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_emotes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_file)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_image)).EndInit();
             this.Group_emote.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.icon6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon5)).EndInit();
@@ -344,6 +411,8 @@ namespace ChatTCP
             ((System.ComponentModel.ISupportInitialize)(this.icon2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon1)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tab3.ResumeLayout(false);
+            this.tab3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -351,14 +420,20 @@ namespace ChatTCP
         #endregion
         private System.Windows.Forms.TextBox txt_inputMess;
         private System.Windows.Forms.ListView Lv_ShowMess_Join;
-        private System.Windows.Forms.TabPage tab2;
-        private System.Windows.Forms.TabPage tab1;
         private System.Windows.Forms.ListBox Lv_ShowMess_client;
-        private System.Windows.Forms.Button btn_Send;
-        private System.Windows.Forms.TextBox txt_inputMess_client;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.Button btn_emotes_hide;
-        private System.Windows.Forms.Button btn_emotes;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.TabPage tab2;
+        private System.Windows.Forms.Button btn_img_user_client;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbl_ThongTinName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_ThongTinIP;
+        private System.Windows.Forms.Label lbl_ThongtinCong;
+        private System.Windows.Forms.TabPage tab1;
+        private System.Windows.Forms.PictureBox btn_emotes_hide;
+        private System.Windows.Forms.PictureBox btn_emotes;
+        private System.Windows.Forms.PictureBox btn_file;
+        private System.Windows.Forms.PictureBox btn_image;
         private System.Windows.Forms.GroupBox Group_emote;
         private System.Windows.Forms.PictureBox icon6;
         private System.Windows.Forms.PictureBox icon5;
@@ -367,14 +442,13 @@ namespace ChatTCP
         private System.Windows.Forms.PictureBox icon2;
         private System.Windows.Forms.PictureBox icon1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lbl_ThongTinName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbl_ThongTinIP;
-        private System.Windows.Forms.Label lbl_ThongtinCong;
-        private System.Windows.Forms.Button btn_image;
-        private System.Windows.Forms.Button btn_img_user_client;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.Button btn_file;
+        private System.Windows.Forms.Button btn_Send;
+        private System.Windows.Forms.TextBox txt_inputMess_client;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabPage tab3;
+        private System.Windows.Forms.TextBox txt_input_ChatRieng;
+        private System.Windows.Forms.Button btn_send_ChatRieng;
+        private System.Windows.Forms.ListBox List_ChatRieng_Client;
     }
 }

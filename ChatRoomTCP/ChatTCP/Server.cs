@@ -39,6 +39,9 @@ namespace ChatTCP
 
         Image img_client;
 
+        //nhận tên của user
+        List<String> list_name_User = new List<string>();
+
 
 
         public Server(String name, String IP, int Port, Form1_start frm)
@@ -52,7 +55,6 @@ namespace ChatTCP
             open_img_user = new OpenFileDialog();
             open_img_user.FileName = "D:\\CSharp\\ChatRoomTCP\\ChatRoomTCP\\Image\\user.jfif";
             pictureBox1.Image = Image.FromFile(open_img_user.FileName);
-
 
             this.Group_emote.Hide();
             this.btn_emotes_hide.Hide();
@@ -119,15 +121,14 @@ namespace ChatTCP
             server.Bind(IP);
 
             Thread Listen = new Thread(() => {
-                try
+            try
+            {
+                while (true)
                 {
-                    while (true)
-                    {
-                        server.Listen(100);
-                        Socket client = server.Accept();
-                        ClientList.Add(client);
-                        AddNotificationMessage(client.RemoteEndPoint.ToString() + " Đã tham gia vào phòng chat");
-
+                    server.Listen(100);
+                    Socket client = server.Accept();
+                    ClientList.Add(client);
+                        // AddNotificationMessage(client.RemoteEndPoint.ToString() + " Đã tham gia vào phòng chat");
 
 
                         //nhận ảnh đại diện
@@ -146,7 +147,6 @@ namespace ChatTCP
 
                             ClientImage.Add(img);
                         }
-                        //
 
 
 
@@ -155,11 +155,15 @@ namespace ChatTCP
 
                         //RemoteEndPoint : lấy ip của server và cổng của ứng dụng client
                         //LocalEndPoint : lấy ip và cổng của client đã kết nối tới
+
+                        /* thêm danh sách các user vô theo dạng remotepoint
                         list_all.Items.Clear();
                         foreach (Socket item in ClientList)
                         {
                             list_all.Items.Add(item.RemoteEndPoint.ToString());
                         }
+                        */
+
                         Thread receive = new Thread(Receive);
                         receive.IsBackground = true;
                         receive.Start(client);
@@ -191,7 +195,6 @@ namespace ChatTCP
             if (client != null && txt_inputMess.Text != string.Empty)
                 // client.Send(Serialize(lbl_ThongTinName.Text+": " + txt_inputMess.Text));
                 client.Send(Serialize(txt_inputMess.Text));
-
         }
 
 
@@ -296,33 +299,59 @@ namespace ChatTCP
                         {
                             string message = (string)Deserialize(data);
                             // để hiển thị tin nhắn của client lên tất cả client còn lại
-                            foreach (Socket item in ClientList)
-                            {
-                                //item != null (nếu tin nhắn khác null)  && item!= client (và nếu tin nhắn khác của client đang gửi)
-                                if (item != null && item != client)
-                                    item.Send(Serialize(message));
-                            }
+                            
+
                             if (message != null && message != "")
                             {
                                 //GetMessage(message);
                                 this.tinnhan = message;
                                 Label lbl_receive = new Label();
                                 lbl_receive.Text = this.tinnhan;
-                                //AddReceiveMessage(message);
-                                if (message == "icon1.jfif" || message == "icon2.jpg" || message == "icon3.png"
-                                    || message == "icon4.png" || message == "icon5.jfif" || message == "icon6.jfif")
+                                //lấy tên client
+                                try
                                 {
-                                    add_image_receive(message);
+                                    String[] name_client = message.Split("==");
+                                    if(name_client[0] == "GuiRieng")
+                                    {
+                                        list_ChatRieng.Items.Add(name_client[1]);
+                                    }
+                                    else
+                                    {
+                                        list_name_User.Add(name_client[1]);
+                                        list_all_name.Items.Clear();
+                                        foreach (String item in list_name_User)
+                                        {
+                                            list_all_name.Items.Add(item);
+                                        }
+                                        AddNotificationMessage(name_client[1] + " Đã tham gia vào phòng chat");
+                                    }
                                 }
-                                else
+                                catch
                                 {
-                                    String RemoteEndPoint = client.RemoteEndPoint.ToString();
-                                    String[] port = RemoteEndPoint.Split(":");
-                                    port_client = Int32.Parse(port[1]);
-                                    i = kiemtra(PortClient, port_client);
-                                    AddReceiveMessage(message); // + client.RemoteEndPoint
-                                }
+                                    foreach (Socket item in ClientList)
+                                    {
+                                        //item != null (nếu tin nhắn khác null)  && item!= client (và nếu tin nhắn khác của client đang gửi)
+                                        if (item != null && item != client)
+                                            item.Send(Serialize(message));
+                                    }
 
+                                    //AddReceiveMessage(message);
+
+                                    if (message == "icon1.jfif" || message == "icon2.jpg" || message == "icon3.png"
+                                        || message == "icon4.png" || message == "icon5.jfif" || message == "icon6.jfif")
+                                    {
+                                        add_image_receive(message);
+                                    }
+                                    else
+                                    {
+                                        String RemoteEndPoint = client.RemoteEndPoint.ToString();
+                                        String[] port = RemoteEndPoint.Split(":");
+                                        port_client = Int32.Parse(port[1]);
+                                        i = kiemtra(PortClient, port_client);
+                                        AddReceiveMessage(message); // + client.RemoteEndPoint
+                                    }
+
+                                }
 
                             }
                         } //end if
@@ -384,13 +413,23 @@ namespace ChatTCP
             }
             catch
             {
+                int i = ClientList.IndexOf(client);
+                //MessageBox.Show(i.ToString());
                 ClientList.Remove(client);
                 AddNotificationMessage(client.RemoteEndPoint + ": đã thoát khỏi phòng Chat");
                 //list_all.Items.Remove(client.RemoteEndPoint);
+                /* khi có người rời thì tiến hành lập lại danh sách
                 list_all.Items.Clear();
                 foreach (Socket item in ClientList)
                 {
                     list_all.Items.Add(item.RemoteEndPoint.ToString());
+                }
+                */
+                list_name_User.RemoveAt(i);
+                list_all_name.Items.Clear();
+                foreach (String item in list_name_User)
+                {
+                    list_all_name.Items.Add(item);
                 }
                 client.Close();
             }
@@ -630,7 +669,7 @@ namespace ChatTCP
             this.btn_emotes.Hide();
             this.Group_emote.Visible = true;
             this.btn_emotes_hide.Show();
-            this.Group_emote.Show();         
+            this.Group_emote.Show();
         }
 
         void hide_emotes()
@@ -768,7 +807,7 @@ namespace ChatTCP
         }
 
 
-                                 //gửi ảnh
+        //gửi ảnh
 
         private void btn_image_Click(object sender, EventArgs e)
         {
@@ -799,7 +838,7 @@ namespace ChatTCP
 
                 foreach (Socket item in ClientList)
                 {
-                   item.Send(Serialize(img));
+                    item.Send(Serialize(img));
                 }
                 // thêm hình ảnh vô nơi gửi
                 /*
@@ -807,8 +846,6 @@ namespace ChatTCP
                 pictureBox_image.Image = Image.FromFile(openFileImage.FileName);
                 */
                 Add_img_send(img);
-
-
             }
             else
             {
@@ -863,7 +900,7 @@ namespace ChatTCP
             {
                 return;
             }
-            
+
         }
 
 
@@ -951,7 +988,7 @@ namespace ChatTCP
         }
 
 
-        //để lấy công dựa vào key i
+        //để lấy cổng dựa vào key i
         int kiemtra(List<int> listport, int port)
         {
             int i;
@@ -966,5 +1003,52 @@ namespace ChatTCP
         }
 
 
+
+
+        // Gửi tin nhắn riêng
+
+        Socket Client_ChatRieng;
+        int index_ChatRieng;
+        //get infomation of user in listbox
+        private void list_all_name_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show(list_all_name.SelectedItem.ToString());
+            //MessageBox.Show(list_all_name.SelectedIndex.ToString());
+            int index;
+            //lấy chỉ mục khi nhấn vào item
+            index = list_all_name.SelectedIndex;
+            String Client_remoteendPoint = ClientList[index].RemoteEndPoint.ToString();
+            String[] array_socket = Client_remoteendPoint.Split(":");
+            textBox1.Text = array_socket[0];
+            textBox2.Text = array_socket[1];
+            textBox3.Text = ClientList[index].RemoteEndPoint.ToString();
+            textBox4.Text = list_all_name.SelectedItem.ToString();
+            //Send(ClientList[index]);  gửi được tin nhắn cho 1 client
+            Client_ChatRieng = ClientList[index];
+            index_ChatRieng = index;
+        }
+
+        void Send_rieng(Socket client)
+        {
+            if (client != null && txt_input_ChatRieng.Text != string.Empty)
+                // client.Send(Serialize(lbl_ThongTinName.Text+": " + txt_inputMess.Text));
+                client.Send(Serialize("GuiRieng=="+txt_input_ChatRieng.Text));
+        }
+
+        private void btn_send_ChatRieng_Click(object sender, EventArgs e)
+        {
+            if (Client_ChatRieng!= null && txt_input_ChatRieng != null)
+            {
+                Send_rieng(Client_ChatRieng);
+            }
+            list_ChatRieng.Items.Add("Bạn: "+txt_input_ChatRieng.Text);
+            txt_input_ChatRieng.Clear();
+        }
+
+
+
+        //hết chat riêng
+    
+    
     }
 }

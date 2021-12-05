@@ -16,7 +16,7 @@ namespace ChatTCP
     {
         IPEndPoint IP;
         Socket client;
-
+       // List<Socket> ClientList;   //danh sách lưu các client - nhận từ server
 
         String name;
         String ip;
@@ -30,6 +30,9 @@ namespace ChatTCP
 
         String image_path;
 
+        //nhận tên của user
+        List<String> list_name_User = new List<string>();
+
         public Client(String Name, String IP, int Port, Form1_start frm, String imgName)
         {
             this.name = Name;
@@ -40,17 +43,22 @@ namespace ChatTCP
 
             InitializeComponent();
 
+
             //ảnh đại diện
             open_img_user = new OpenFileDialog();
             open_img_user.FileName = image_path;
             pictureBox1.Image = Image.FromFile(open_img_user.FileName);
 
+            this.Text = this.name;
+
             //xử lý lỗi đụng tài nguyên
             CheckForIllegalCrossThreadCalls = false; // khong cho check lỗi
 
+            this.btn_emotes_hide.Hide();
+
             lbl_ThongtinCong.Text += port.ToString();
             lbl_ThongTinIP.Text += ip;
-            lbl_ThongTinName.Text += name;
+            lbl_ThongTinName.Text = name;
 
             Connect();
         }
@@ -58,6 +66,7 @@ namespace ChatTCP
 
         public int Connect()
         {
+
             //IP: địa chỉ của server
             String name_client = this.name;
             int port = this.port;
@@ -68,19 +77,19 @@ namespace ChatTCP
                 IP = new IPEndPoint(IPAddress.Parse(diachiIP), port);
                 // ổ cắm ở phía server
                 client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP); // mặc định là phải ghi như vậy
-
+             
                 // giả sử connect không được
                 try
                 {
                     //kết nối với ổ cắm và địa chỉ phía server
                     client.Connect(IP);
                     //MessageBox.Show("Bạn đã gia nhập phòng chat", "Kết nối thành công với Server", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //  client.Send(Serialize("User:" + name_client + " đã tham gia vào phòng chat"));
-
-                    //
-
+                    //client.Send(Serialize("User:" + name_client + " đã tham gia vào phòng chat"));
+                    //gửi ảnh
                     Image img = Image.FromFile(this.image_path); //open_img_user.FileName
                     client.Send(Serialize(img));
+                    //gửi tên
+                    client.Send(Serialize("name=="+lbl_ThongTinName.Text));
 
                     //
                     AddNotificationMessage("Bạn đã gia nhập phòng Chat " + client.RemoteEndPoint);
@@ -132,7 +141,6 @@ namespace ChatTCP
 
         void Receive()
         {
-
             // cố gắng nhận tin nếu có lỗi thì sẽ thực thi catch ở dưới
             try
             {
@@ -153,14 +161,31 @@ namespace ChatTCP
                             //đưa tin nhắn đã chuyển thành string lên khung chat
                             //AddReceiveMessage(message);
                             //nếu gửi icon (ký hiệu đặc biệt)
-                            if (message == "icon1.jfif" || message == "icon2.jpg" || message == "icon3.png"
-                                || message == "icon4.png" || message == "icon5.jfif" || message == "icon6.jfif")
+                            try
                             {
-                                add_icon_receive(message);
+                                String[] name_client = message.Split("==");//==tên || GuiRieng==mess
+                                if (name_client[0] == "GuiRieng")
+                                {
+                                    List_ChatRieng_Client.Items.Add("Server: "+ name_client[1]);
+                                }
+                                else
+                                {
+                                    list_name_User.Add(name_client[1]);
+                                    AddNotificationMessage(name_client[1] + " Đã tham gia vào phòng chat");
+                                }
                             }
-                            else
+                            catch
                             {
-                                AddReceiveMessage(message);
+                                if (message == "icon1.jfif" || message == "icon2.jpg" || message == "icon3.png"
+                                || message == "icon4.png" || message == "icon5.jfif" || message == "icon6.jfif")
+                                {
+                                    add_icon_receive(message);
+                                }
+                                else
+                                {
+                                     AddReceiveMessage(message);// trong else có một dòng này thôi
+                                   
+                                }
                             }
                         }
 
@@ -171,6 +196,8 @@ namespace ChatTCP
                             Add_img_receive(img);
                         }
                         //hết nhận ảnh
+
+
                     }
                     //catch để nhận file
                     catch
@@ -642,6 +669,9 @@ namespace ChatTCP
             }
         }
 
+
+
+
         OpenFileDialog open_img_user;
         private void btn_img_user_client_Click(object sender, EventArgs e)
         {
@@ -730,7 +760,49 @@ namespace ChatTCP
             }
         }
 
+
+
+
+
         //hết gửi file
+
+
+        //trả về vị trí của cổng đó trong danh sách các cổng
+        int get_index(List<int> listport, int port)
+        {
+            int i;
+            for (i = 0; i < listport.Count; i++)
+            {
+                if (listport[i] == port)
+                {
+                    return i;
+                }
+            }
+            return i;
+        }
+
+        //Chat rieng
+
+        void Send_rieng()
+        {
+            if (txt_input_ChatRieng.Text != string.Empty)
+            {
+                client.Send(Serialize("GuiRieng=="+ lbl_ThongTinName.Text+ ": " + txt_input_ChatRieng.Text));
+            }
+
+        }
+
+        private void btn_send_ChatRieng_Click(object sender, EventArgs e)
+        {
+            if (txt_input_ChatRieng.Text != string.Empty)
+            {
+                Send_rieng();
+                List_ChatRieng_Client.Items.Add("Bạn: "+txt_input_ChatRieng.Text);
+                txt_input_ChatRieng.Clear();
+            }
+        }
+
+
 
 
 
