@@ -48,29 +48,28 @@ namespace ChatTCP
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_Send = new System.Windows.Forms.Button();
             this.txt_inputMess = new System.Windows.Forms.TextBox();
-            this.tab2 = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_doianh = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbl_ThongTinName = new System.Windows.Forms.Label();
-            this.lbl_ThongTinIP = new System.Windows.Forms.Label();
-            this.lbl_ThongtinCong = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.tab3 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.Group_ChatRieng = new System.Windows.Forms.GroupBox();
             this.list_ChatRieng = new System.Windows.Forms.ListBox();
             this.txt_input_ChatRieng = new System.Windows.Forms.TextBox();
             this.btn_send_ChatRieng = new System.Windows.Forms.Button();
             this.list_all_name = new System.Windows.Forms.ListBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_doianh = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.rjButton24 = new CustomControls.RJControls.RJButton2();
+            this.lbl_ThongTinIP = new CustomControls.RJControls.RJButton2();
+            this.lbl_ThongtinCong = new CustomControls.RJControls.RJButton2();
+            this.lbl_ThongTinName = new CustomControls.RJControls.RJButton2();
+            this.tab2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_image)).BeginInit();
@@ -84,11 +83,11 @@ namespace ChatTCP
             ((System.ComponentModel.ISupportInitialize)(this.icon3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon1)).BeginInit();
-            this.tab2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tab3.SuspendLayout();
-            this.Group_ChatRieng.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.Group_ChatRieng.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tab2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -120,7 +119,7 @@ namespace ChatTCP
             this.tab1.Padding = new System.Windows.Forms.Padding(3);
             this.tab1.Size = new System.Drawing.Size(656, 328);
             this.tab1.TabIndex = 0;
-            this.tab1.Text = "Message";
+            this.tab1.Text = "Tin nhắn";
             this.tab1.UseVisualStyleBackColor = true;
             // 
             // btn_image
@@ -284,87 +283,6 @@ namespace ChatTCP
             this.txt_inputMess.Size = new System.Drawing.Size(433, 23);
             this.txt_inputMess.TabIndex = 1;
             // 
-            // tab2
-            // 
-            this.tab2.Controls.Add(this.pictureBox1);
-            this.tab2.Controls.Add(this.btn_doianh);
-            this.tab2.Controls.Add(this.label2);
-            this.tab2.Controls.Add(this.lbl_ThongTinName);
-            this.tab2.Controls.Add(this.lbl_ThongTinIP);
-            this.tab2.Controls.Add(this.lbl_ThongtinCong);
-            this.tab2.Controls.Add(this.label1);
-            this.tab2.Location = new System.Drawing.Point(4, 24);
-            this.tab2.Name = "tab2";
-            this.tab2.Padding = new System.Windows.Forms.Padding(3);
-            this.tab2.Size = new System.Drawing.Size(656, 328);
-            this.tab2.TabIndex = 1;
-            this.tab2.Text = "Your Profile";
-            this.tab2.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(260, 259);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btn_doianh
-            // 
-            this.btn_doianh.Location = new System.Drawing.Point(120, 299);
-            this.btn_doianh.Name = "btn_doianh";
-            this.btn_doianh.Size = new System.Drawing.Size(75, 23);
-            this.btn_doianh.TabIndex = 8;
-            this.btn_doianh.Text = "Đổi ảnh";
-            this.btn_doianh.UseVisualStyleBackColor = true;
-            this.btn_doianh.Click += new System.EventHandler(this.btn_doianh_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(352, 168);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 15);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Name: ";
-            // 
-            // lbl_ThongTinName
-            // 
-            this.lbl_ThongTinName.AutoSize = true;
-            this.lbl_ThongTinName.Location = new System.Drawing.Point(397, 168);
-            this.lbl_ThongTinName.Name = "lbl_ThongTinName";
-            this.lbl_ThongTinName.Size = new System.Drawing.Size(0, 15);
-            this.lbl_ThongTinName.TabIndex = 3;
-            // 
-            // lbl_ThongTinIP
-            // 
-            this.lbl_ThongTinIP.AutoSize = true;
-            this.lbl_ThongTinIP.Location = new System.Drawing.Point(352, 88);
-            this.lbl_ThongTinIP.Name = "lbl_ThongTinIP";
-            this.lbl_ThongTinIP.Size = new System.Drawing.Size(23, 15);
-            this.lbl_ThongTinIP.TabIndex = 2;
-            this.lbl_ThongTinIP.Text = "IP: ";
-            // 
-            // lbl_ThongtinCong
-            // 
-            this.lbl_ThongtinCong.AutoSize = true;
-            this.lbl_ThongtinCong.Location = new System.Drawing.Point(352, 129);
-            this.lbl_ThongtinCong.Name = "lbl_ThongtinCong";
-            this.lbl_ThongtinCong.Size = new System.Drawing.Size(42, 15);
-            this.lbl_ThongtinCong.TabIndex = 1;
-            this.lbl_ThongtinCong.Text = "Cổng: ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(352, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Thông Tin Của Bạn";
-            // 
             // tab3
             // 
             this.tab3.Controls.Add(this.groupBox1);
@@ -376,6 +294,87 @@ namespace ChatTCP
             this.tab3.TabIndex = 2;
             this.tab3.Text = "Trực tuyến";
             this.tab3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Location = new System.Drawing.Point(168, 18);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(84, 290);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông Tin";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(6, 238);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(72, 23);
+            this.textBox4.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 220);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 15);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Name";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 51);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(72, 23);
+            this.textBox1.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 157);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 15);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Socket";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(6, 175);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(72, 23);
+            this.textBox3.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(17, 15);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "IP";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 95);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 15);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Port";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(6, 113);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(72, 23);
+            this.textBox2.TabIndex = 4;
             // 
             // Group_ChatRieng
             // 
@@ -425,86 +424,114 @@ namespace ChatTCP
             this.list_all_name.TabIndex = 1;
             this.list_all_name.SelectedIndexChanged += new System.EventHandler(this.list_all_name_SelectedIndexChanged);
             // 
-            // label6
+            // btn_doianh
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 220);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 15);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Name";
+            this.btn_doianh.Location = new System.Drawing.Point(120, 299);
+            this.btn_doianh.Name = "btn_doianh";
+            this.btn_doianh.Size = new System.Drawing.Size(75, 23);
+            this.btn_doianh.TabIndex = 8;
+            this.btn_doianh.Text = "Đổi ảnh";
+            this.btn_doianh.UseVisualStyleBackColor = true;
+            this.btn_doianh.Click += new System.EventHandler(this.btn_doianh_Click);
             // 
-            // label5
+            // pictureBox1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 157);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 15);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Socket";
+            this.pictureBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(260, 259);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
-            // textBox4
+            // rjButton24
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 238);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(61, 23);
-            this.textBox4.TabIndex = 8;
+            this.rjButton24.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton24.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton24.BorderColor = System.Drawing.Color.MediumBlue;
+            this.rjButton24.BorderRadius = 20;
+            this.rjButton24.BorderSize = 0;
+            this.rjButton24.FlatAppearance.BorderSize = 0;
+            this.rjButton24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton24.ForeColor = System.Drawing.Color.White;
+            this.rjButton24.Location = new System.Drawing.Point(352, 46);
+            this.rjButton24.Name = "rjButton24";
+            this.rjButton24.Size = new System.Drawing.Size(250, 40);
+            this.rjButton24.TabIndex = 18;
+            this.rjButton24.Text = "Thông Tin Của Bạn";
+            this.rjButton24.TextColor = System.Drawing.Color.White;
+            this.rjButton24.UseVisualStyleBackColor = false;
             // 
-            // textBox3
+            // lbl_ThongTinIP
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 175);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(61, 23);
-            this.textBox3.TabIndex = 6;
+            this.lbl_ThongTinIP.BackColor = System.Drawing.Color.Yellow;
+            this.lbl_ThongTinIP.BackgroundColor = System.Drawing.Color.Yellow;
+            this.lbl_ThongTinIP.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.lbl_ThongTinIP.BorderRadius = 20;
+            this.lbl_ThongTinIP.BorderSize = 0;
+            this.lbl_ThongTinIP.FlatAppearance.BorderSize = 0;
+            this.lbl_ThongTinIP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_ThongTinIP.ForeColor = System.Drawing.Color.Black;
+            this.lbl_ThongTinIP.Location = new System.Drawing.Point(401, 110);
+            this.lbl_ThongTinIP.Name = "lbl_ThongTinIP";
+            this.lbl_ThongTinIP.Size = new System.Drawing.Size(150, 40);
+            this.lbl_ThongTinIP.TabIndex = 19;
+            this.lbl_ThongTinIP.Text = "IP: ";
+            this.lbl_ThongTinIP.TextColor = System.Drawing.Color.Black;
+            this.lbl_ThongTinIP.UseVisualStyleBackColor = false;
             // 
-            // label4
+            // lbl_ThongtinCong
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 95);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 15);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Port";
+            this.lbl_ThongtinCong.BackColor = System.Drawing.Color.Yellow;
+            this.lbl_ThongtinCong.BackgroundColor = System.Drawing.Color.Yellow;
+            this.lbl_ThongtinCong.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.lbl_ThongtinCong.BorderRadius = 20;
+            this.lbl_ThongtinCong.BorderSize = 0;
+            this.lbl_ThongtinCong.FlatAppearance.BorderSize = 0;
+            this.lbl_ThongtinCong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_ThongtinCong.ForeColor = System.Drawing.Color.Black;
+            this.lbl_ThongtinCong.Location = new System.Drawing.Point(401, 176);
+            this.lbl_ThongtinCong.Name = "lbl_ThongtinCong";
+            this.lbl_ThongtinCong.Size = new System.Drawing.Size(150, 40);
+            this.lbl_ThongtinCong.TabIndex = 20;
+            this.lbl_ThongtinCong.Text = "Cổng: ";
+            this.lbl_ThongtinCong.TextColor = System.Drawing.Color.Black;
+            this.lbl_ThongtinCong.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // lbl_ThongTinName
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 113);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(61, 23);
-            this.textBox2.TabIndex = 4;
+            this.lbl_ThongTinName.BackColor = System.Drawing.Color.Yellow;
+            this.lbl_ThongTinName.BackgroundColor = System.Drawing.Color.Yellow;
+            this.lbl_ThongTinName.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.lbl_ThongTinName.BorderRadius = 20;
+            this.lbl_ThongTinName.BorderSize = 0;
+            this.lbl_ThongTinName.FlatAppearance.BorderSize = 0;
+            this.lbl_ThongTinName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_ThongTinName.ForeColor = System.Drawing.Color.Black;
+            this.lbl_ThongTinName.Location = new System.Drawing.Point(401, 242);
+            this.lbl_ThongTinName.Name = "lbl_ThongTinName";
+            this.lbl_ThongTinName.Size = new System.Drawing.Size(150, 40);
+            this.lbl_ThongTinName.TabIndex = 21;
+            this.lbl_ThongTinName.Text = "Tên: ";
+            this.lbl_ThongTinName.TextColor = System.Drawing.Color.Black;
+            this.lbl_ThongTinName.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // tab2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "IP";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(6, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(61, 23);
-            this.textBox1.TabIndex = 2;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Location = new System.Drawing.Point(168, 18);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(84, 290);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông Tin";
+            this.tab2.Controls.Add(this.lbl_ThongTinName);
+            this.tab2.Controls.Add(this.lbl_ThongtinCong);
+            this.tab2.Controls.Add(this.lbl_ThongTinIP);
+            this.tab2.Controls.Add(this.rjButton24);
+            this.tab2.Controls.Add(this.pictureBox1);
+            this.tab2.Controls.Add(this.btn_doianh);
+            this.tab2.Location = new System.Drawing.Point(4, 24);
+            this.tab2.Name = "tab2";
+            this.tab2.Padding = new System.Windows.Forms.Padding(3);
+            this.tab2.Size = new System.Drawing.Size(656, 328);
+            this.tab2.TabIndex = 1;
+            this.tab2.Text = "Thông tin của bạn";
+            this.tab2.UseVisualStyleBackColor = true;
+            this.tab2.Click += new System.EventHandler(this.tab2_Click);
             // 
             // Server
             // 
@@ -533,14 +560,13 @@ namespace ChatTCP
             ((System.ComponentModel.ISupportInitialize)(this.icon3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon1)).EndInit();
-            this.tab2.ResumeLayout(false);
-            this.tab2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tab3.ResumeLayout(false);
-            this.Group_ChatRieng.ResumeLayout(false);
-            this.Group_ChatRieng.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.Group_ChatRieng.ResumeLayout(false);
+            this.Group_ChatRieng.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tab2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -551,11 +577,6 @@ namespace ChatTCP
         private System.Windows.Forms.TabPage tab1;
         private System.Windows.Forms.Button btn_Send;
         private System.Windows.Forms.TextBox txt_inputMess;
-        private System.Windows.Forms.TabPage tab2;
-        private System.Windows.Forms.Label lbl_ThongTinName;
-        private System.Windows.Forms.Label lbl_ThongTinIP;
-        private System.Windows.Forms.Label lbl_ThongtinCong;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tab3;
         private System.Windows.Forms.ColumnHeader cloum1;
         private GroupBox Group_emote;
@@ -566,9 +587,6 @@ namespace ChatTCP
         private PictureBox icon2;
         private PictureBox icon1;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Label label2;
-        private Button btn_doianh;
-        private PictureBox pictureBox1;
         private PictureBox btn_emotes;
         private PictureBox btn_emotes_hide;
         private PictureBox btn_file;
@@ -587,5 +605,16 @@ namespace ChatTCP
         private TextBox txt_input_ChatRieng;
         private Button btn_send_ChatRieng;
         private GroupBox groupBox1;
+        private CustomControls.RJControls.RJButton2 rjButton21;
+        private CustomControls.RJControls.RJButton2 rjButton22;
+        private CustomControls.RJControls.RJButton2 rjButton23;
+        private CustomControls.RJControls.RJButton2 rjButton25;
+        private TabPage tab2;
+        private CustomControls.RJControls.RJButton2 lbl_ThongTinName;
+        private CustomControls.RJControls.RJButton2 lbl_ThongtinCong;
+        private CustomControls.RJControls.RJButton2 lbl_ThongTinIP;
+        private CustomControls.RJControls.RJButton2 rjButton24;
+        private PictureBox pictureBox1;
+        private Button btn_doianh;
     }
 }

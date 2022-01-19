@@ -35,12 +35,24 @@ namespace ChatTCP
             this.path_img = open_img_user.FileName;
             pictureBox2.Image = Image.FromFile(open_img_user.FileName);
 
-            txtb_name_start.Text = "";
-            txtb_portStart.Text = "9999";
-            txtb_ipStart.Text = "localhost";
+            // lấy tên của  máy tính
+            txtb_name_start.Text = System.Environment.MachineName;
 
-            txt_ipHost.Text = getIPAddress();
+            txtb_portStart.Text = "9999";
+            txtb_portStart.Enabled = false;
+
+            txtb_ipStart.Text = "localhost";
+            txtb_ipStart.Enabled = false;
+
+            //host
+            txt_nameHost.Text = "Host";
+
+            txt_ipHost.Text = "127.0.0.1";//getIPAddress();
+            txt_ipHost.Enabled = false;
+
             txt_portHost.Text = "9999";
+            txt_portHost.Enabled = false;
+
         }
 
 
@@ -73,6 +85,7 @@ namespace ChatTCP
             //Close();
             btn_Joinchat.Show();
             btn_newchat.Show();
+            pictureBox1.Show();
 
             lbl_IpStart.Hide();
             lbl_portStart.Hide();
@@ -83,6 +96,8 @@ namespace ChatTCP
             label1.Hide();
             btn_cancel_Start.Hide();
             btn_start.Hide();
+            pictureBox2.Hide();
+            btn_img_user.Hide();
         }
 
         private void btn_Joinchat_Click(object sender, EventArgs e)

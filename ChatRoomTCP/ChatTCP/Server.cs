@@ -42,6 +42,8 @@ namespace ChatTCP
         //nhận tên của user
         List<String> list_name_User = new List<string>();
 
+        String NameFile_Receivel = "";
+
 
 
         public Server(String name, String IP, int Port, Form1_start frm)
@@ -113,7 +115,7 @@ namespace ChatTCP
             ClientImage = new List<Image>();
             PortClient = new List<int>();
 
-            AddNotificationMessage("Phòng Chat Đã Sẵn Sàng ...");
+            AddNotificationMessage("Phòng Chat Đã Sẵn Sàng ...", Color.Blue);
 
             IP = new IPEndPoint(IPAddress.Any, port);
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP); // mặc định là phải ghi như vậy
@@ -304,6 +306,7 @@ namespace ChatTCP
                             if (message != null && message != "")
                             {
                                 //GetMessage(message);
+                                NameFile_Receivel = message;
                                 this.tinnhan = message;
                                 Label lbl_receive = new Label();
                                 lbl_receive.Text = this.tinnhan;
@@ -323,7 +326,7 @@ namespace ChatTCP
                                         {
                                             list_all_name.Items.Add(item);
                                         }
-                                        AddNotificationMessage(name_client[1] + " Đã tham gia vào phòng chat");
+                                        AddNotificationMessage(name_client[1] + " Đã tham gia vào phòng chat", Color.Blue);
                                     }
                                 }
                                 catch
@@ -376,12 +379,12 @@ namespace ChatTCP
                     }
                     catch
                     {
-
                         this.Invoke(new Action(() =>
                         {
                             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
                             saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
                             saveFileDialog1.FilterIndex = 2;
+                            saveFileDialog1.FileName = NameFile_Receivel;
                             saveFileDialog1.RestoreDirectory = true;
 
                             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -416,7 +419,7 @@ namespace ChatTCP
                 int i = ClientList.IndexOf(client);
                 //MessageBox.Show(i.ToString());
                 ClientList.Remove(client);
-                AddNotificationMessage(client.RemoteEndPoint + ": đã thoát khỏi phòng Chat");
+                AddNotificationMessage(client.RemoteEndPoint + ": đã thoát khỏi phòng Chat", Color.Red);
                 //list_all.Items.Remove(client.RemoteEndPoint);
                 /* khi có người rời thì tiến hành lập lại danh sách
                 list_all.Items.Clear();
@@ -440,7 +443,7 @@ namespace ChatTCP
 
 
         //nâng cao
-        void AddNotificationMessage(String s)
+        void AddNotificationMessage(String s, Color color)
         {
             if (!this.IsHandleCreated)
             {
@@ -454,7 +457,7 @@ namespace ChatTCP
                 //lbl_sending.BackColor = Color.Blue;
                 lbl.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
                 lbl.Height = 30;
-                lbl.ForeColor = Color.Red;
+                lbl.ForeColor = color;
                 
                 lbl.Padding = new System.Windows.Forms.Padding(5);
                 lbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -1014,6 +1017,7 @@ namespace ChatTCP
         {
             //MessageBox.Show(list_all_name.SelectedItem.ToString());
             //MessageBox.Show(list_all_name.SelectedIndex.ToString());
+            MessageBox.Show("Lấy thông tin của " + list_all_name.SelectedItem.ToString());
             int index;
             //lấy chỉ mục khi nhấn vào item
             index = list_all_name.SelectedIndex;
@@ -1045,10 +1049,15 @@ namespace ChatTCP
             txt_input_ChatRieng.Clear();
         }
 
+        private void tab2_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
         //hết chat riêng
-    
-    
+
+
     }
 }

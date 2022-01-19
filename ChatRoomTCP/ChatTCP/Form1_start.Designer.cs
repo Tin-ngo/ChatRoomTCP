@@ -78,14 +78,14 @@ namespace ChatTCP
             // 
             this.txtb_ipStart.Location = new System.Drawing.Point(96, 101);
             this.txtb_ipStart.Name = "txtb_ipStart";
-            this.txtb_ipStart.Size = new System.Drawing.Size(100, 23);
+            this.txtb_ipStart.Size = new System.Drawing.Size(129, 23);
             this.txtb_ipStart.TabIndex = 2;
             // 
             // txtb_portStart
             // 
             this.txtb_portStart.Location = new System.Drawing.Point(96, 136);
             this.txtb_portStart.Name = "txtb_portStart";
-            this.txtb_portStart.Size = new System.Drawing.Size(100, 23);
+            this.txtb_portStart.Size = new System.Drawing.Size(129, 23);
             this.txtb_portStart.TabIndex = 3;
             // 
             // lbl_welCome
@@ -133,7 +133,7 @@ namespace ChatTCP
             // 
             this.txtb_name_start.Location = new System.Drawing.Point(96, 64);
             this.txtb_name_start.Name = "txtb_name_start";
-            this.txtb_name_start.Size = new System.Drawing.Size(100, 23);
+            this.txtb_name_start.Size = new System.Drawing.Size(129, 23);
             this.txtb_name_start.TabIndex = 8;
             // 
             // pictureBox1
@@ -218,6 +218,7 @@ namespace ChatTCP
             this.txt_nameHost.Name = "txt_nameHost";
             this.txt_nameHost.Size = new System.Drawing.Size(100, 23);
             this.txt_nameHost.TabIndex = 15;
+            this.txt_nameHost.Visible = false;
             // 
             // txt_portHost
             // 

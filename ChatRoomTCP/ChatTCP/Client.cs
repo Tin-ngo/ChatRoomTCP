@@ -92,7 +92,7 @@ namespace ChatTCP
                     client.Send(Serialize("name=="+lbl_ThongTinName.Text));
 
                     //
-                    AddNotificationMessage("Bạn đã gia nhập phòng Chat " + client.RemoteEndPoint);
+                    AddNotificationMessage("Bạn đã gia nhập phòng Chat " + client.RemoteEndPoint, Color.Blue);
                     Show();
                 }
                 catch
@@ -171,7 +171,7 @@ namespace ChatTCP
                                 else
                                 {
                                     list_name_User.Add(name_client[1]);
-                                    AddNotificationMessage(name_client[1] + " Đã tham gia vào phòng chat");
+                                    AddNotificationMessage(name_client[1] + " Đã tham gia vào phòng chat", Color.Blue);
                                 }
                             }
                             catch
@@ -267,7 +267,7 @@ namespace ChatTCP
             }));
         }
 
-        void AddNotificationMessage(String s)
+        void AddNotificationMessage(String s, Color color)
         {
             if (!this.IsHandleCreated)
             {
@@ -281,7 +281,7 @@ namespace ChatTCP
                 //lbl_sending.BackColor = Color.Blue;
                 lbl.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
                 lbl.Height = 30;
-                lbl.ForeColor = Color.Red;
+                lbl.ForeColor = color;
 
                 lbl.Padding = new System.Windows.Forms.Padding(5);
                 lbl.TextAlign = ContentAlignment.MiddleCenter;
