@@ -1,0 +1,14 @@
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\obj\Debug\ChatApp_TCP.Client.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\obj\Debug\ChatApp_TCP.Form1_start.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\obj\Debug\ChatTCP.Items.Image_Receive.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\obj\Debug\ChatTCP.Items.Image_send.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\obj\Debug\ChatApp_TCP.Properties.Resources.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\obj\Debug\ChatApp_TCP.Server.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\obj\Debug\ChatApp_TCP.csproj.GenerateResource.cache
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\obj\Debug\ChatApp_TCP.csproj.CoreCompileInputs.cache
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\bin\Debug\ChatApp_TCP.exe.config
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\bin\Debug\ChatApp_TCP.exe
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\bin\Debug\ChatApp_TCP.pdb
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\obj\Debug\ChatApp_TCP.exe
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\obj\Debug\ChatApp_TCP.pdb
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatApp_TCP\obj\Debug\ChatApp_TCP.csproj.AssemblyReference.cache

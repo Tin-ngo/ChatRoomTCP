@@ -151,21 +151,6 @@ namespace ChatTCP
                         }
 
 
-
-                        //String socket_clientconnect = client.RemoteEndPoint.ToString();
-                        //String port_clientconnect = socket_clientconnect.Substring(socket_clientconnect.Length - 1, 1);
-
-                        //RemoteEndPoint : lấy ip của server và cổng của ứng dụng client
-                        //LocalEndPoint : lấy ip và cổng của client đã kết nối tới
-
-                        /* thêm danh sách các user vô theo dạng remotepoint
-                        list_all.Items.Clear();
-                        foreach (Socket item in ClientList)
-                        {
-                            list_all.Items.Add(item.RemoteEndPoint.ToString());
-                        }
-                        */
-
                         Thread receive = new Thread(Receive);
                         receive.IsBackground = true;
                         receive.Start(client);

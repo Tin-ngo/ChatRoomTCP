@@ -1,0 +1,112 @@
+D:\CSharp\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.exe
+D:\CSharp\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.deps.json
+D:\CSharp\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.runtimeconfig.json
+D:\CSharp\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.runtimeconfig.dev.json
+D:\CSharp\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.dll
+D:\CSharp\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ref\ChatTCP.dll
+D:\CSharp\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.pdb
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.AssemblyReference.cache
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.GenerateResource.cache
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.AssemblyInfoInputs.cache
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.AssemblyInfo.cs
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.CoreCompileInputs.cache
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.dll
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ref\ChatTCP.dll
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.pdb
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.genruntimeconfig.cache
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Form1_start.resources
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Properties.Resources.resources
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Client.resources
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Server.resources
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.exe
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.deps.json
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.runtimeconfig.json
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.runtimeconfig.dev.json
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.dll
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\bin\Debug\net5.0-windows\ref\ChatTCP.dll
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.pdb
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.AssemblyReference.cache
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Client.resources
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Form1_start.resources
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.item.resources
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Properties.Resources.resources
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Server.resources
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.GenerateResource.cache
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.AssemblyInfoInputs.cache
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.AssemblyInfo.cs
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.CoreCompileInputs.cache
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.dll
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ref\ChatTCP.dll
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.pdb
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_PhienBanListView_2_Ổn định\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.genruntimeconfig.cache
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.exe
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.deps.json
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.runtimeconfig.json
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.runtimeconfig.dev.json
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.dll
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ref\ChatTCP.dll
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.pdb
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.AssemblyReference.cache
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Client.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Form1_start.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Properties.Resources.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Server.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.GenerateResource.cache
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.AssemblyInfoInputs.cache
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.AssemblyInfo.cs
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.CoreCompileInputs.cache
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.dll
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ref\ChatTCP.dll
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.pdb
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.genruntimeconfig.cache
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.AssemblyReference.cache
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Client.resources
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Form1_start.resources
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Properties.Resources.resources
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Server.resources
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.GenerateResource.cache
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.AssemblyInfoInputs.cache
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.AssemblyInfo.cs
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.CoreCompileInputs.cache
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.dll
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ref\ChatTCP.dll
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.pdb
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.exe
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.deps.json
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.runtimeconfig.json
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.runtimeconfig.dev.json
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.dll
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\bin\Debug\net5.0-windows\ref\ChatTCP.dll
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.pdb
+D:\CSharp\Phiên bản ChatRoomTCP_Chinh\ChatRoomTCP_bản dùng flowlayoutpanel_Bịloi\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.genruntimeconfig.cache
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Items.Image_Receive.resources
+D:\CSharp\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Items.Image_send.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Items.Image_Receive.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Items.Image_send.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.exe
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.deps.json
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.runtimeconfig.json
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.runtimeconfig.dev.json
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.dll
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ref\ChatTCP.dll
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\bin\Debug\net5.0-windows\ChatTCP.pdb
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.AssemblyReference.cache
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Client.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Form1_start.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Items.Image_Receive.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Items.Image_send.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Properties.Resources.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.Server.resources
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.GenerateResource.cache
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.AssemblyInfoInputs.cache
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.AssemblyInfo.cs
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.csproj.CoreCompileInputs.cache
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.dll
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ref\ChatTCP.dll
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.pdb
+D:\CSharp\ChatRoomTCP\ChatRoomTCP_setup\ChatRoomTCP\ChatTCP\obj\Debug\net5.0-windows\ChatTCP.genruntimeconfig.cache

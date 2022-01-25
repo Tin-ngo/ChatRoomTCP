@@ -47,7 +47,7 @@ namespace ChatTCP
             //host
             txt_nameHost.Text = "Host";
 
-            txt_ipHost.Text = "127.0.0.1";//getIPAddress();
+            txt_ipHost.Text = getIPAddress();//"127.0.0.1";
             txt_ipHost.Enabled = false;
 
             txt_portHost.Text = "9999";

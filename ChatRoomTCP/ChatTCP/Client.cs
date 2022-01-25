@@ -689,8 +689,6 @@ namespace ChatTCP
 
 
 
-
-
         /// <summary>
         ///Gửi file
         /// </summary>

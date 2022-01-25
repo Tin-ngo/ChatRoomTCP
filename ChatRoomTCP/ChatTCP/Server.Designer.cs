@@ -1,4 +1,5 @@
 ﻿
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ChatTCP
@@ -48,6 +49,13 @@ namespace ChatTCP
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_Send = new System.Windows.Forms.Button();
             this.txt_inputMess = new System.Windows.Forms.TextBox();
+            this.tab2 = new System.Windows.Forms.TabPage();
+            this.lbl_ThongTinName = new CustomControls.RJControls.RJButton2();
+            this.lbl_ThongtinCong = new CustomControls.RJControls.RJButton2();
+            this.lbl_ThongTinIP = new CustomControls.RJControls.RJButton2();
+            this.rjButton24 = new CustomControls.RJControls.RJButton2();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_doianh = new System.Windows.Forms.Button();
             this.tab3 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -63,13 +71,6 @@ namespace ChatTCP
             this.txt_input_ChatRieng = new System.Windows.Forms.TextBox();
             this.btn_send_ChatRieng = new System.Windows.Forms.Button();
             this.list_all_name = new System.Windows.Forms.ListBox();
-            this.btn_doianh = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.rjButton24 = new CustomControls.RJControls.RJButton2();
-            this.lbl_ThongTinIP = new CustomControls.RJControls.RJButton2();
-            this.lbl_ThongtinCong = new CustomControls.RJControls.RJButton2();
-            this.lbl_ThongTinName = new CustomControls.RJControls.RJButton2();
-            this.tab2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_image)).BeginInit();
@@ -83,11 +84,11 @@ namespace ChatTCP
             ((System.ComponentModel.ISupportInitialize)(this.icon3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon1)).BeginInit();
+            this.tab2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tab3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.Group_ChatRieng.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tab2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -267,9 +268,9 @@ namespace ChatTCP
             // btn_Send
             // 
             this.btn_Send.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Send.Location = new System.Drawing.Point(450, 299);
+            this.btn_Send.Location = new System.Drawing.Point(450, 295);
             this.btn_Send.Name = "btn_Send";
-            this.btn_Send.Size = new System.Drawing.Size(75, 23);
+            this.btn_Send.Size = new System.Drawing.Size(75, 27);
             this.btn_Send.TabIndex = 2;
             this.btn_Send.Text = "Gửi";
             this.btn_Send.UseVisualStyleBackColor = true;
@@ -282,6 +283,115 @@ namespace ChatTCP
             this.txt_inputMess.Name = "txt_inputMess";
             this.txt_inputMess.Size = new System.Drawing.Size(433, 23);
             this.txt_inputMess.TabIndex = 1;
+            // 
+            // tab2
+            // 
+            this.tab2.Controls.Add(this.lbl_ThongTinName);
+            this.tab2.Controls.Add(this.lbl_ThongtinCong);
+            this.tab2.Controls.Add(this.lbl_ThongTinIP);
+            this.tab2.Controls.Add(this.rjButton24);
+            this.tab2.Controls.Add(this.pictureBox1);
+            this.tab2.Controls.Add(this.btn_doianh);
+            this.tab2.Location = new System.Drawing.Point(4, 24);
+            this.tab2.Name = "tab2";
+            this.tab2.Padding = new System.Windows.Forms.Padding(3);
+            this.tab2.Size = new System.Drawing.Size(656, 328);
+            this.tab2.TabIndex = 1;
+            this.tab2.Text = "Thông tin của bạn";
+            this.tab2.UseVisualStyleBackColor = true;
+            this.tab2.Click += new System.EventHandler(this.tab2_Click);
+            // 
+            // lbl_ThongTinName
+            // 
+            this.lbl_ThongTinName.BackColor = System.Drawing.Color.Yellow;
+            this.lbl_ThongTinName.BackgroundColor = System.Drawing.Color.Yellow;
+            this.lbl_ThongTinName.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.lbl_ThongTinName.BorderRadius = 20;
+            this.lbl_ThongTinName.BorderSize = 0;
+            this.lbl_ThongTinName.FlatAppearance.BorderSize = 0;
+            this.lbl_ThongTinName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_ThongTinName.ForeColor = System.Drawing.Color.Black;
+            this.lbl_ThongTinName.Location = new System.Drawing.Point(401, 242);
+            this.lbl_ThongTinName.Name = "lbl_ThongTinName";
+            this.lbl_ThongTinName.Size = new System.Drawing.Size(150, 40);
+            this.lbl_ThongTinName.TabIndex = 21;
+            this.lbl_ThongTinName.Text = "Tên: ";
+            this.lbl_ThongTinName.TextColor = System.Drawing.Color.Black;
+            this.lbl_ThongTinName.UseVisualStyleBackColor = false;
+            // 
+            // lbl_ThongtinCong
+            // 
+            this.lbl_ThongtinCong.BackColor = System.Drawing.Color.Yellow;
+            this.lbl_ThongtinCong.BackgroundColor = System.Drawing.Color.Yellow;
+            this.lbl_ThongtinCong.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.lbl_ThongtinCong.BorderRadius = 20;
+            this.lbl_ThongtinCong.BorderSize = 0;
+            this.lbl_ThongtinCong.FlatAppearance.BorderSize = 0;
+            this.lbl_ThongtinCong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_ThongtinCong.ForeColor = System.Drawing.Color.Black;
+            this.lbl_ThongtinCong.Location = new System.Drawing.Point(401, 176);
+            this.lbl_ThongtinCong.Name = "lbl_ThongtinCong";
+            this.lbl_ThongtinCong.Size = new System.Drawing.Size(150, 40);
+            this.lbl_ThongtinCong.TabIndex = 20;
+            this.lbl_ThongtinCong.Text = "Cổng: ";
+            this.lbl_ThongtinCong.TextColor = System.Drawing.Color.Black;
+            this.lbl_ThongtinCong.UseVisualStyleBackColor = false;
+            // 
+            // lbl_ThongTinIP
+            // 
+            this.lbl_ThongTinIP.BackColor = System.Drawing.Color.Yellow;
+            this.lbl_ThongTinIP.BackgroundColor = System.Drawing.Color.Yellow;
+            this.lbl_ThongTinIP.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.lbl_ThongTinIP.BorderRadius = 20;
+            this.lbl_ThongTinIP.BorderSize = 0;
+            this.lbl_ThongTinIP.FlatAppearance.BorderSize = 0;
+            this.lbl_ThongTinIP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_ThongTinIP.ForeColor = System.Drawing.Color.Black;
+            this.lbl_ThongTinIP.Location = new System.Drawing.Point(401, 110);
+            this.lbl_ThongTinIP.Name = "lbl_ThongTinIP";
+            this.lbl_ThongTinIP.Size = new System.Drawing.Size(150, 40);
+            this.lbl_ThongTinIP.TabIndex = 19;
+            this.lbl_ThongTinIP.Text = "IP: ";
+            this.lbl_ThongTinIP.TextColor = System.Drawing.Color.Black;
+            this.lbl_ThongTinIP.UseVisualStyleBackColor = false;
+            // 
+            // rjButton24
+            // 
+            this.rjButton24.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton24.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton24.BorderColor = System.Drawing.Color.MediumBlue;
+            this.rjButton24.BorderRadius = 20;
+            this.rjButton24.BorderSize = 0;
+            this.rjButton24.FlatAppearance.BorderSize = 0;
+            this.rjButton24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton24.ForeColor = System.Drawing.Color.White;
+            this.rjButton24.Location = new System.Drawing.Point(352, 46);
+            this.rjButton24.Name = "rjButton24";
+            this.rjButton24.Size = new System.Drawing.Size(250, 40);
+            this.rjButton24.TabIndex = 18;
+            this.rjButton24.Text = "Thông Tin Của Bạn";
+            this.rjButton24.TextColor = System.Drawing.Color.White;
+            this.rjButton24.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(260, 259);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_doianh
+            // 
+            this.btn_doianh.Location = new System.Drawing.Point(120, 299);
+            this.btn_doianh.Name = "btn_doianh";
+            this.btn_doianh.Size = new System.Drawing.Size(75, 23);
+            this.btn_doianh.TabIndex = 8;
+            this.btn_doianh.Text = "Đổi ảnh";
+            this.btn_doianh.UseVisualStyleBackColor = true;
+            this.btn_doianh.Click += new System.EventHandler(this.btn_doianh_Click);
             // 
             // tab3
             // 
@@ -424,115 +534,6 @@ namespace ChatTCP
             this.list_all_name.TabIndex = 1;
             this.list_all_name.SelectedIndexChanged += new System.EventHandler(this.list_all_name_SelectedIndexChanged);
             // 
-            // btn_doianh
-            // 
-            this.btn_doianh.Location = new System.Drawing.Point(120, 299);
-            this.btn_doianh.Name = "btn_doianh";
-            this.btn_doianh.Size = new System.Drawing.Size(75, 23);
-            this.btn_doianh.TabIndex = 8;
-            this.btn_doianh.Text = "Đổi ảnh";
-            this.btn_doianh.UseVisualStyleBackColor = true;
-            this.btn_doianh.Click += new System.EventHandler(this.btn_doianh_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(260, 259);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
-            // rjButton24
-            // 
-            this.rjButton24.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton24.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton24.BorderColor = System.Drawing.Color.MediumBlue;
-            this.rjButton24.BorderRadius = 20;
-            this.rjButton24.BorderSize = 0;
-            this.rjButton24.FlatAppearance.BorderSize = 0;
-            this.rjButton24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton24.ForeColor = System.Drawing.Color.White;
-            this.rjButton24.Location = new System.Drawing.Point(352, 46);
-            this.rjButton24.Name = "rjButton24";
-            this.rjButton24.Size = new System.Drawing.Size(250, 40);
-            this.rjButton24.TabIndex = 18;
-            this.rjButton24.Text = "Thông Tin Của Bạn";
-            this.rjButton24.TextColor = System.Drawing.Color.White;
-            this.rjButton24.UseVisualStyleBackColor = false;
-            // 
-            // lbl_ThongTinIP
-            // 
-            this.lbl_ThongTinIP.BackColor = System.Drawing.Color.Yellow;
-            this.lbl_ThongTinIP.BackgroundColor = System.Drawing.Color.Yellow;
-            this.lbl_ThongTinIP.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.lbl_ThongTinIP.BorderRadius = 20;
-            this.lbl_ThongTinIP.BorderSize = 0;
-            this.lbl_ThongTinIP.FlatAppearance.BorderSize = 0;
-            this.lbl_ThongTinIP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbl_ThongTinIP.ForeColor = System.Drawing.Color.Black;
-            this.lbl_ThongTinIP.Location = new System.Drawing.Point(401, 110);
-            this.lbl_ThongTinIP.Name = "lbl_ThongTinIP";
-            this.lbl_ThongTinIP.Size = new System.Drawing.Size(150, 40);
-            this.lbl_ThongTinIP.TabIndex = 19;
-            this.lbl_ThongTinIP.Text = "IP: ";
-            this.lbl_ThongTinIP.TextColor = System.Drawing.Color.Black;
-            this.lbl_ThongTinIP.UseVisualStyleBackColor = false;
-            // 
-            // lbl_ThongtinCong
-            // 
-            this.lbl_ThongtinCong.BackColor = System.Drawing.Color.Yellow;
-            this.lbl_ThongtinCong.BackgroundColor = System.Drawing.Color.Yellow;
-            this.lbl_ThongtinCong.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.lbl_ThongtinCong.BorderRadius = 20;
-            this.lbl_ThongtinCong.BorderSize = 0;
-            this.lbl_ThongtinCong.FlatAppearance.BorderSize = 0;
-            this.lbl_ThongtinCong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbl_ThongtinCong.ForeColor = System.Drawing.Color.Black;
-            this.lbl_ThongtinCong.Location = new System.Drawing.Point(401, 176);
-            this.lbl_ThongtinCong.Name = "lbl_ThongtinCong";
-            this.lbl_ThongtinCong.Size = new System.Drawing.Size(150, 40);
-            this.lbl_ThongtinCong.TabIndex = 20;
-            this.lbl_ThongtinCong.Text = "Cổng: ";
-            this.lbl_ThongtinCong.TextColor = System.Drawing.Color.Black;
-            this.lbl_ThongtinCong.UseVisualStyleBackColor = false;
-            // 
-            // lbl_ThongTinName
-            // 
-            this.lbl_ThongTinName.BackColor = System.Drawing.Color.Yellow;
-            this.lbl_ThongTinName.BackgroundColor = System.Drawing.Color.Yellow;
-            this.lbl_ThongTinName.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.lbl_ThongTinName.BorderRadius = 20;
-            this.lbl_ThongTinName.BorderSize = 0;
-            this.lbl_ThongTinName.FlatAppearance.BorderSize = 0;
-            this.lbl_ThongTinName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbl_ThongTinName.ForeColor = System.Drawing.Color.Black;
-            this.lbl_ThongTinName.Location = new System.Drawing.Point(401, 242);
-            this.lbl_ThongTinName.Name = "lbl_ThongTinName";
-            this.lbl_ThongTinName.Size = new System.Drawing.Size(150, 40);
-            this.lbl_ThongTinName.TabIndex = 21;
-            this.lbl_ThongTinName.Text = "Tên: ";
-            this.lbl_ThongTinName.TextColor = System.Drawing.Color.Black;
-            this.lbl_ThongTinName.UseVisualStyleBackColor = false;
-            // 
-            // tab2
-            // 
-            this.tab2.Controls.Add(this.lbl_ThongTinName);
-            this.tab2.Controls.Add(this.lbl_ThongtinCong);
-            this.tab2.Controls.Add(this.lbl_ThongTinIP);
-            this.tab2.Controls.Add(this.rjButton24);
-            this.tab2.Controls.Add(this.pictureBox1);
-            this.tab2.Controls.Add(this.btn_doianh);
-            this.tab2.Location = new System.Drawing.Point(4, 24);
-            this.tab2.Name = "tab2";
-            this.tab2.Padding = new System.Windows.Forms.Padding(3);
-            this.tab2.Size = new System.Drawing.Size(656, 328);
-            this.tab2.TabIndex = 1;
-            this.tab2.Text = "Thông tin của bạn";
-            this.tab2.UseVisualStyleBackColor = true;
-            this.tab2.Click += new System.EventHandler(this.tab2_Click);
-            // 
             // Server
             // 
             this.AcceptButton = this.btn_Send;
@@ -560,13 +561,13 @@ namespace ChatTCP
             ((System.ComponentModel.ISupportInitialize)(this.icon3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon1)).EndInit();
+            this.tab2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tab3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.Group_ChatRieng.ResumeLayout(false);
             this.Group_ChatRieng.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tab2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
